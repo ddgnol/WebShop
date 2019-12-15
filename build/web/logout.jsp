@@ -64,7 +64,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" id="logchange" href="LoginForward" onclick="changelog()">ĐĂNG xuất</a>
+                            <a class="nav-link" id="logchange" href="LoginForward" onclick="changelog()">ĐĂNG XUẤT</a>
                         </li>
                     </ul>
                 </nav>

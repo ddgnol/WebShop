@@ -24,18 +24,18 @@
             <br><br><br><br><br><br><br><br>
             <div class="row">
                 <div class="col-sm-3">
-                        <h1 class="my-4">SẢN PHẨM</h1>
-                        <div class="list-group">
-                            <a href="viewPhone" class="list-group-item" >Điện thoại</a>
-                            <a href="viewLaptop" class="list-group-item">Laptop</a>
-                            <a href="viewCamera" class="list-group-item">Máy ảnh</a>
-                        </div>
+                    <h1 class="my-4">SẢN PHẨM</h1>
+                    <div class="list-group">
+                        <a href="viewPhone" class="list-group-item" >Điện thoại</a>
+                        <a href="viewLaptop" class="list-group-item">Laptop</a>
+                        <a href="viewCamera" class="list-group-item">Máy ảnh</a>
                     </div>
+                </div>
                 <div class="col-sm-6">
                     <div class="container">
                         <div class="alert alert-danger">
-                        <strong>Thất bại</strong> Sai mật khẩu hoặc tài khoản. Mời bạn nhập lại
-                      </div>
+                            <strong>Thất bại</strong> Sai mật khẩu hoặc tài khoản. Mời bạn nhập lại
+                        </div>
                         <h2>Đăng nhập</h2>
                         <form action="login" method="post">
                             <div class="">
@@ -52,7 +52,7 @@
                                 </label>
                             </div>
                             <button type="submit" class="btn btn-primary " >Đăng nhập</button>
-                            
+
                         </form>
                         <div style="margin-top: 30px">
                             <h3>Bạn chưa có tài khoản ?</h3>

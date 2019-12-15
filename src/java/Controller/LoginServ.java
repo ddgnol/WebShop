@@ -23,9 +23,7 @@ import javax.servlet.http.HttpSession;
 public class LoginServ extends HttpServlet {
 
     
-  
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-   
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -36,7 +34,7 @@ public class LoginServ extends HttpServlet {
         
         try {
             AccountDAO dao = new AccountDAO();
-            Account acc =dao.getAccount(user, pass);
+            Account acc = dao.getAccount(user, pass);
             System.out.println(acc.getUsername());
             System.out.println(acc.getPassword());
             if (acc.getUsername().equals(user)  &&  acc.getPassword().equals(pass)){
@@ -54,7 +52,7 @@ public class LoginServ extends HttpServlet {
                     view.forward(request, response);
                 }
                 else{
-                RequestDispatcher view = request.getRequestDispatcher("index2.jsp");
+                RequestDispatcher view = request.getRequestDispatcher("index.jsp");
                 view.forward(request, response);}
             } else{
                 RequestDispatcher view = request.getRequestDispatcher("loginFail.jsp");

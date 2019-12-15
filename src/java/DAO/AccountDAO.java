@@ -4,6 +4,7 @@ package DAO;
 import DBConnection.DBConnection;
 import Model.Account;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -58,6 +59,33 @@ public class AccountDAO {
         sm=conn.createStatement();
         sm.executeUpdate(query);
     }
+    
+    public Account getAccountById(String id) throws SQLException, ClassNotFoundException{
+        Account acc = new Account();
+        String sql = "select * from account where id='"+id+"';"  ;
+        conn = DBConnection.getConnection();
+        sm = conn.createStatement();
+        rs = sm.executeQuery(sql);
+        while (rs.next()) {         
+           acc.setId(rs.getString(1));
+           acc.setUsername(rs.getString(2));
+           acc.setPassword(rs.getString(3));
+           acc.setIsAdmin(rs.getInt(4));
+        }
+        return acc ;
+    }
+        
+    public void updateAccount(Account account) throws ClassNotFoundException, SQLException{
+        String sql = "update account set username=?,password=?,isAdmin=0 where id=? ;" ;
+        conn = DBConnection.getConnection();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, account.getUsername());
+        ps.setString(2, account.getPassword());       
+        ps.setString(3, account.getId());
+        ps.executeUpdate();
+        ps.close();
+    }
+    
     
 //    public boolean checkAccount(String user, String pass) throws ClassNotFoundException, SQLException{
 //        

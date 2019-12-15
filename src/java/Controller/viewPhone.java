@@ -51,7 +51,7 @@ public class viewPhone extends HttpServlet {
          
             
          //   System.out.println("asdfasd"+list.get(0).getImg());
-            
+            request.setAttribute("noOfPages", 5);
             RequestDispatcher view = request.getRequestDispatcher("AllProducts.jsp");
             view.forward(request, response);
             

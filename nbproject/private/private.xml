@@ -3,13 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/Downloads/WebShop-master/src/java/DBConnection/DBConnection.java</file>
-            <file>file:/C:/Users/Admin/Downloads/WebShop-master/src/java/Model/Product.java</file>
-            <file>file:/C:/Users/Admin/Downloads/WebShop-master/src/java/Controller/AdminView.java</file>
-            <file>file:/C:/Users/Admin/Downloads/WebShop-master/web/admin.jsp</file>
-            <file>file:/C:/Users/Admin/Downloads/WebShop-master/src/java/Controller/EditProductServlet.java</file>
-            <file>file:/C:/Users/Admin/Downloads/WebShop-master/src/java/DAO/ProductDAO.java</file>
-            <file>file:/C:/Users/Admin/Downloads/WebShop-master/src/java/Controller/AddProduct.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop-master/web/updateCustomer.jsp</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop-master/src/java/Controller/UpdateAccountServlet.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop-master/src/java/Controller/UpdateCustomerServlet.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop-master/web/updateAcc.jsp</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop-master/web/customer.jsp</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop-master/web/thanhtoan.jsp</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop-master/src/java/Controller/CustomerServlet.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop-master/src/java/DAO/AccountDAO.java</file>
         </group>
     </open-files>
 </project-private>

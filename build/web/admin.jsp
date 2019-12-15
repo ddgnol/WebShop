@@ -11,9 +11,16 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <style>
-
-        </style>
+        <script>
+            var loadFile = function (event) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var output = document.getElementById('output');
+                    output.src = reader.result;
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            };// code display image upload
+        </script>
     </head>
     <body class="w3-light-grey w3-content" style="max-width:1600px">
 
@@ -32,6 +39,7 @@
                 <a href="#updateProduct" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Thêm sản phẩm</a>
                 <a href="#khachhang" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Khách hàng</a> 
                 <a href="#sanphamduocquantam" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Sản phẩm được quan tâm</a>
+                <a href="index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Trở lại trang chủ</a>
             </div>
 
         </nav>
@@ -72,7 +80,7 @@
                                 <td>${pro.describe}</td>
                                 <td>
                                     <a href="<c:url value="EditProduct?${pro.id}"/>">Sửa</a>
-                                  
+
                                     <form action="DeleteProduct?id=${pro.id}" method="post">
                                         <button>Xóa</button>
                                     </form>
@@ -82,11 +90,27 @@
                     </tbody>
                 </table>
             </div>
-            <form action="AddProduct" method="POST">
+            <form action="AddProduct" method="POST" enctype="multipart/form-data">
                 <div id="updateProduct" class="container " style="margin:20px">
                     <h1>Thêm sản phẩm</h1>
-                    <input class="w3-input w3-padding-16" type="text" placeholder="Mã sản phẩm"  name="id" id="id" required>
-                    <input class="w3-input w3-padding-16" type="text" placeholder="Tên sản phẩm"  name="name" required>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                               for="ProductId">MA SAN PHAM </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="id" required="required"
+                                   class="form-control col-md-7 col-xs-12" name="id">
+                        </div>
+                    </div>
+                    <!--                    <input class="w3-input w3-padding-16" type="text" placeholder="Mã sản phẩm"  name="id" id="id" required>-->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                               for="productName">Tên sản phẩm </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="name" required="required"
+                                   class="form-control col-md-7 col-xs-12" name="name">
+                        </div>
+                    </div>
+                    <!--                    <input class="w3-input w3-padding-16" type="text" placeholder="Tên sản phẩm"  name="name" required>-->
                     <div class="form-check-inline">
                         <label class="form-check-label" for="check1">
                             <input type="checkbox" class="form-check-input" id="check1" name="category" value="ĐIỆN THOẠI" checked>ĐIỆN THOẠI
@@ -102,10 +126,32 @@
                             <input type="checkbox" class="form-check-input" id="check3" name="category" value="MÁY ẢNH">MÁY ẢNH
                         </label>
                     </div>
-                    <input class="w3-input w3-padding-16" type="text" placeholder="Price"  name="price" id="price" required >
-                    <input class="w3-input w3-padding-16" type="text" placeholder="describe"  name="describe" id="describe" required >
-                    <input class="w3-input w3-padding-16" type="text" placeholder="img"  name="image" id="image" required>
+                    <!--                                        <input class="w3-input w3-padding-16" type="text" placeholder="Price"  name="price" id="price" required >-->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                               for="productName">Price </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="price" required="required"
+                                   class="form-control col-md-7 col-xs-12" name="price">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                               for="productName">Mo ta </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="describe" required="required"
+                                   class="form-control col-md-7 col-xs-12" name="describe">
+                        </div>
+                    </div>
+                    <!--                    <input class="w3-input w3-padding-16" type="text" placeholder="describe"  name="describe" id="describe" required >-->
 
+                    <!--                    <input class="w3-input w3-padding-16" type="text" placeholder="img"  name="image" id="image" required>-->
+                    <label for="anh3"
+                           class="control-label col-md-3 col-sm-3 col-xs-12">Ảnh</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input id="anh3" class="form-control col-md-7 col-xs-12"
+                               type="file" name="anh3" accept="image/*" onchange="loadFile(event)">
+                    </div>
 
                 </div>
                 <input style="width:400px; height: 50px; margin:  50px" type = "submit" value = "Them san pham" />

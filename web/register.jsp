@@ -22,12 +22,12 @@
     <h1>Đăng kí</h1><br>
     
     <form action="Register" >
-       <p><input class="w3-input w3-padding-16" type="text" placeholder="Tài khoản"  name="user"></p>
-       <p><input class="w3-input w3-padding-16" type="password" placeholder="Mật khẩu"  name="pass"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Mã khách hàng chọn ( 8 kí tự )"  name="code"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Tên khách hàng"  name="name"></p>
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Tài khoản"  name="user" required></p>
+      <p><input class="w3-input w3-padding-16" type="password" placeholder="Mật khẩu"  name="pass" required></p>
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Mã khách hàng chọn ( 3 kí tự )"  name="code" required></p>
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Tên khách hàng"  name="name" required></p>
       <p><input class="w3-input w3-padding-16" type="date" placeholder="Ngày sinh"  name="date" ></p>
-      <p><input class="w3-input w3-padding-16" type="number" placeholder="Số điện thoại"  name="phone"></p>
+      <p><input class="w3-input w3-padding-16" type="number" placeholder="Số điện thoại"  name="phone" required></p>
       <p><input class="w3-input w3-padding-16" type="text" placeholder="Gmail"  name="gmail"></p>
       <p><input class="w3-input w3-padding-16" type="text" placeholder="Địa chỉ"  name="address"></p>
       <p><button class="btn  bg-warning btn-block" type="submit">Đăng kí</button></p>

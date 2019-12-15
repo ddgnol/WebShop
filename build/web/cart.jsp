@@ -18,11 +18,11 @@
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
-            <br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3">
-                        <h1 class="my-4">SẢN PHẨM</h1>
+                        <h4 class="my-4">SẢN PHẨM</h4>
                         <div class="list-group">
                             <a href="viewPhone" class="list-group-item" >Điện thoại</a>
                             <a href="viewLaptop" class="list-group-item">Laptop</a>
@@ -45,45 +45,45 @@
                             <c:forEach var="pro" items="${cartPro}">
                                 <tr >
                                     <th >
-                            <div class="p-2 ">
-                                <img src="${pro.img}" class="img-fluid rounded shadow-sm" width="100">
+                                        <div class="p-2 ">
+                                            <img src="${pro.img}" class="img-fluid rounded shadow-sm" width="100">
 
-                                <div class="ml-3 d-inline-block align-middle">
-                                    <h5 class="">
-                                        <a href="#" class=""><strong>${pro.name}</strong></a>
-                                    </h5>
-                                    <span CLASS="text-muted font-weight-normal font-italic d-block">${pro.category}</span>
-                                </div>
-                            </div>
-                            </th>
-                            <td class="align-middle">
-                                <strong>${pro.id}</strong>
-                            </td>
-                            <td class="align-middle">
-                                <strong>${pro.price}</strong>
-                            </td>
-                            <td class="align-middle">
-                                <a  href="DeleteProInCart?id=${pro.id}" ><i class="fa fa-trash"></i></a>
-                            </td>
-                            <td class="align-middle">
-                                <input type="checkbox" style="margin-left: 20px">
-                            </td>
-                            </tr>
+                                            <div class="ml-3 d-inline-block align-middle">
+                                                <h5 class="">
+                                                    <a href="#" class=""><strong>${pro.name}</strong></a>
+                                                </h5>
+                                                <span CLASS="text-muted font-weight-normal font-italic d-block">${pro.category}</span>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <td class="align-middle">
+                                        <strong>${pro.id}</strong>
+                                    </td>
+                                    <td class="align-middle">
+                                        <strong>${pro.price}</strong>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a  href="DeleteProInCart?id=${pro.id}" ><i class="fa fa-trash"></i></a>
+                                    </td>
+                                    <td class="align-middle">
+                                        <input type="checkbox" style="margin-left: 20px">
+                                    </td>
+                                </tr>
                             <div id ="doServlet"></div>
-<!--                            <script>
-                                function deletePro() {
-                                    var xhttp = new XMLHttpRequest();
-                                    xhttp.onreadystatechange = function () {
-                                        if (this.readyState == 4 && this.status == 200) {
-                                            document.getElementById("doServlet").innerHTML = this.responseText;
-                                        }
-                                    };
-                                    xhttp.open("POST", "DeleteProInCart?id=${pro.id}", true);
-                                    xhttp.send();
-                                }
-                            </script>-->
-                            
-                        
+                            <!--                            <script>
+                                                            function deletePro() {
+                                                                var xhttp = new XMLHttpRequest();
+                                                                xhttp.onreadystatechange = function () {
+                                                                    if (this.readyState == 4 && this.status == 200) {
+                                                                        document.getElementById("doServlet").innerHTML = this.responseText;
+                                                                    }
+                                                                };
+                                                                xhttp.open("POST", "DeleteProInCart?id=${pro.id}", true);
+                                                                xhttp.send();
+                                                            }
+                                                        </script>-->
+
+
                         </c:forEach>
                         </tbody>
                     </table>
@@ -91,19 +91,19 @@
 
                     <div style="margin: 20px; color: gray">
                         <h3 >Tổng tiền:</h3>
-                    <%
-                        List<Product> list
-                                = (List<Product>) request.getAttribute("cartPro");
-                        int sum = 0;
-                        for(Product p: list){
-                            sum+= p.getPrice();
-                        }
-                    %>
-                    <h2><%=sum%></h2>
+                        <%
+                            List<Product> list
+                                    = (List<Product>) request.getAttribute("cartPro");
+                            int sum = 0;
+                            for (Product p : list) {
+                                sum += p.getPrice();
+                            }
+                        %>
+                        <h2><%=sum%></h2>
                     </div>
-                        <div id="demo" class="collapse alert alert-success">
-                                <strong>Thành công .</strong> Sản phẩm của bạn sẽ được gửi về địa chỉ đăng kí trong 2, 3 ngày tới.
-                            </div>
+                    <div id="demo" class="collapse alert alert-success">
+                        <strong>Thành công .</strong> Sản phẩm của bạn sẽ được gửi về địa chỉ đăng kí trong 2, 3 ngày tới.
+                    </div>
                     <button class="btn btn-block btn-info" data-toggle="collapse" data-target="#demo">Thanh toán</button>
                 </div>
             </div>

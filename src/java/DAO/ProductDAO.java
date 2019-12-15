@@ -311,5 +311,30 @@ public class ProductDAO {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public List<Product> searchPro(int offset, int recordsOfPage, String name) throws ClassNotFoundException, SQLException {
+        List<Product> list = new ArrayList<Product>();
+        String query = "select * from Product where name LIKE '%"+name+"%' order by id offset " + offset + "  rows fetch next " + recordsOfPage + " rows only;";
+        Connection conn = DBConnection.getConnection();
+        sm = conn.createStatement();
+        rs = sm.executeQuery(query);
+
+        while (rs.next()) {
+            Product pro = new Product(rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getInt(4),
+                    rs.getString(5),
+                    rs.getString(6)
+            );
+            list.add(pro);
+        }
+        rs.close();
+        rs = sm.executeQuery("SELECT count(*) from product where name ='%"+name+"'");
+        if (rs.next()) {
+            this.numberOfPro = rs.getInt(1);
+        }
+        return list;
+    }
+
 
 }

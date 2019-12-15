@@ -24,7 +24,7 @@
     <body>
         <div id ="doServlet"></div>
         <jsp:include page="header.jsp"></jsp:include>
-            <br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-2">
