@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="Model.Product"%>
 <%@page import="java.util.List"%>
 <%@page import="DAO.ProductDAO"%>
@@ -49,18 +50,22 @@
         <div id="section1" class="container-fluid" >
             <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">SẢN PHẨM</h2>
             <a href="viewPhone"><h4>   ĐIỆN THOẠI</h4></a>
-            
+
             <div class="w3-row ">
-             <% 
-                ProductDAO productDAO = new ProductDAO();
-                List<Product> listPhone = productDAO.getPhone();
-                for(int i =0; i<4; i++){
-            %>
-          
+                <%
+                    ProductDAO productDAO = new ProductDAO();
+                    List<Product> listPhone = productDAO.getPhone();
+
+                    for (int i = 0; i < 4; i++) {
+                        String pattern = "###,###.###";
+                        DecimalFormat decimalFormat = new DecimalFormat(pattern);
+                        String format = decimalFormat.format(listPhone.get(i).getPrice());
+                %>
+
                 <div class="w3-col l3 s6">
                     <div class="w3-container border">
-                       <div class="w3-display-container " >
-                           <img src="<%=listPhone.get(i).getImg()%>" style="width: 100%; height: 389px">
+                        <div class="w3-display-container " >
+                            <img src="<%=listPhone.get(i).getImg()%>" style="width: 100%">
                             <span class="w3-tag w3-display-topleft w3-red">New</span>
                             <div class="w3-display-middle w3-display-hover">
                                 <a href="ProDetail?id=<%=listPhone.get(i).getId()%>">
@@ -69,210 +74,216 @@
                             </div>
                         </div>
                         <p><%=listPhone.get(i).getName()%><br></p>
-                        <h3><%=listPhone.get(i).getPrice()%></h3>
+                        <h3><%=format%></h3>
                     </div>
                 </div>
-                <% 
+                <%
                     }
                 %>
-               <!-- <div class="w3-col l3 s6">
-                    <div class="w3-container border">
-                        <div class="w3-display-container">
-                            <img src="image/2.jpg" style="width:100%">
-                            <span class="w3-tag w3-display-topleft w3-red">New</span>
-                            <div class="w3-display-middle w3-display-hover">
-                                <button class="w3-button w3-black">Chi tiết <i class="fa fa-shopping-cart"></i></button>
+                <!-- <div class="w3-col l3 s6">
+                     <div class="w3-container border">
+                         <div class="w3-display-container">
+                             <img src="image/2.jpg" style="width:100%">
+                             <span class="w3-tag w3-display-topleft w3-red">New</span>
+                             <div class="w3-display-middle w3-display-hover">
+                                 <button class="w3-button w3-black">Chi tiết <i class="fa fa-shopping-cart"></i></button>
+                             </div>
+                         </div>
+                         <p>camera<br></p>
+                         <h3>21.600.000VNĐ</h3>
+                     </div>
+                 </div>
+                 <div class="w3-col l3 s6">
+                     <div class="w3-container border">
+                         <div class="w3-display-container">
+                             <img src="image/3.jpg" style="width:100%">
+                             <span class="w3-tag w3-display-topleft w3-red">New</span>
+                             <div class="w3-display-middle w3-display-hover">
+                                 <button class="w3-button w3-black">Chi tiết <i class="fa fa-shopping-cart"></i></button>
+                             </div>
+                         </div>
+                         <p>camera<br></p>
+                         <h3>21.600.000VNĐ</h3>
+                     </div>
+                 </div>
+                 <div class="w3-col l3 s6">
+                     <div class="w3-container border">
+                         <div class="w3-display-container">
+                             <img src="image/4.jpg" style="width:100%">
+                             <span class="w3-tag w3-display-topleft w3-red">New</span>
+                             <div class="w3-display-middle w3-display-hover">
+                                 <button class="w3-button w3-black">Chi tiết <i class="fa fa-shopping-cart"></i></button>
+                             </div>
+                         </div>
+                         <p>camera<br></p>
+                         <h3>21.600.000VNĐ</h3>
+                     </div>
+                 </div>
+             </div> -->
+                <br><br><br>
+                <a href="viewLaptop"><h4>   LAPTOP</h4></a>
+                <div class="w3-row ">
+                    <%
+                        ProductDAO productDAO2 = new ProductDAO();
+                        List<Product> listLaptop = productDAO2.getLaptop();
+                        for (int i = 0; i < 4; i++) {
+                            String pattern = "###,###.###";
+                            DecimalFormat decimalFormat = new DecimalFormat(pattern);
+                            String format = decimalFormat.format(listLaptop.get(i).getPrice());
+                    %>
+
+                    <div class="w3-col l3 s6">
+                        <div class="w3-container border">
+                            <div class="w3-display-container " >
+                                <img src="<%=listLaptop.get(i).getImg()%>" style="width: 100%">
+                                <span class="w3-tag w3-display-topleft w3-red">New</span>
+                                <div class="w3-display-middle w3-display-hover">
+                                    <a href="ProDetail?id=<%=listLaptop.get(i).getId()%>">
+                                        <button class="w3-button w3-black">Chi tiết <i class="fa fa-shopping-cart"></i></button>
+                                    </a>
+
+                                </div>
+                            </div>
+                            <p><%=listLaptop.get(i).getName()%><br></p>
+                            <h3><%=format%></h3>
+                        </div>
+                    </div>
+                    <%
+                        }
+                    %>
+                    <br><br><br>
+                    <a href="viewCamera"><h4>   CAMERA</h4></a>
+                    <div class="w3-row ">
+                        <%
+                            ProductDAO productDAO3 = new ProductDAO();
+                            List<Product> listCam = productDAO3.getCamera();
+                            for (int i = 0; i < 4; i++) {
+                                String pattern = "###,###.###";
+                                DecimalFormat decimalFormat = new DecimalFormat(pattern);
+                                String format = decimalFormat.format(listCam.get(i).getPrice());
+                        %>
+
+                        <div class="w3-col l3 s6">
+                            <div class="w3-container border">
+                                <div class="w3-display-container " >
+                                    <img src="<%=listCam.get(i).getImg()%>" style="width: 100%">
+                                    <span class="w3-tag w3-display-topleft w3-red">New</span>
+                                    <div class="w3-display-middle w3-display-hover">
+                                        <a href="ProDetail?id=<%=listCam.get(i).getId()%>">
+                                            <button class="w3-button w3-black">Chi tiết <i class="fa fa-shopping-cart"></i></button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <p><%=listCam.get(i).getName()%><br></p>
+                                <h3><%=format%></h3>
                             </div>
                         </div>
-                        <p>camera<br></p>
-                        <h3>21.600.000VNĐ</h3>
-                    </div>
-                </div>
-                <div class="w3-col l3 s6">
-                    <div class="w3-container border">
-                        <div class="w3-display-container">
-                            <img src="image/3.jpg" style="width:100%">
-                            <span class="w3-tag w3-display-topleft w3-red">New</span>
-                            <div class="w3-display-middle w3-display-hover">
-                                <button class="w3-button w3-black">Chi tiết <i class="fa fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p>camera<br></p>
-                        <h3>21.600.000VNĐ</h3>
-                    </div>
-                </div>
-                <div class="w3-col l3 s6">
-                    <div class="w3-container border">
-                        <div class="w3-display-container">
-                            <img src="image/4.jpg" style="width:100%">
-                            <span class="w3-tag w3-display-topleft w3-red">New</span>
-                            <div class="w3-display-middle w3-display-hover">
-                                <button class="w3-button w3-black">Chi tiết <i class="fa fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p>camera<br></p>
-                        <h3>21.600.000VNĐ</h3>
-                    </div>
-                </div>
-            </div> -->
-            <br><br><br>
-            <a href="viewLaptop"><h4>   LAPTOP</h4></a>
-            <div class="w3-row ">
-             <% 
-                ProductDAO productDAO2 = new ProductDAO();
-                List<Product> listLaptop = productDAO2.getLaptop();
-                for(int i =0; i<4; i++){
-            %>
-          
-                <div class="w3-col l3 s6">
-                    <div class="w3-container border">
-                       <div class="w3-display-container " >
-                           <img src="<%=listLaptop.get(i).getImg()%>" style="width: 100%">
-                            <span class="w3-tag w3-display-topleft w3-red">New</span>
-                            <div class="w3-display-middle w3-display-hover">
-                                <a href="ProDetail?id=<%=listLaptop.get(i).getId()%>">
-                                    <button class="w3-button w3-black">Chi tiết <i class="fa fa-shopping-cart"></i></button>
-                                </a>
-                                
-                            </div>
-                        </div>
-                        <p><%=listLaptop.get(i).getName()%><br></p>
-                        <h3><%=listLaptop.get(i).getPrice()%></h3>
-                    </div>
-                </div>
-                <% 
-                    }
-                %>
-            <br><br><br>
-            <a href="viewCamera"><h4>   CAMERA</h4></a>
-            <div class="w3-row ">
-             <% 
-                ProductDAO productDAO3 = new ProductDAO();
-                List<Product> listCam = productDAO3.getCamera();
-                for(int i =0; i<4; i++){
-            %>
-          
-                <div class="w3-col l3 s6">
-                    <div class="w3-container border">
-                       <div class="w3-display-container " >
-                           <img src="<%=listCam.get(i).getImg()%>" style="width: 100%">
-                            <span class="w3-tag w3-display-topleft w3-red">New</span>
-                            <div class="w3-display-middle w3-display-hover">
-                                <a href="ProDetail?id=<%=listCam.get(i).getId()%>">
-                                    <button class="w3-button w3-black">Chi tiết <i class="fa fa-shopping-cart"></i></button>
-                                </a>
-                            </div>
-                        </div>
-                        <p><%=listCam.get(i).getName()%><br></p>
-                        <h3><%=listCam.get(i).getPrice()%></h3>
-                    </div>
-                </div>
-                <% 
-                    }
-                %>
-            <br> <br> <br> <br>
-            <div id="section2" class="container-fluid "  >
-                <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">VỀ CHÚNG TÔI</h3>
-            </div>
-
-            <div class="container-fluid">
-
-                <div class="row" style="padding-top:20px;padding-bottom:20px">
-                    <div class="col" >
-                        <img src="image/paris.jpg" class="rounded-circle w3-card" alt="Paris" width="304" height="200"> 
-                        <h3 >Nguyễn Văn A</h3>
-                        <p class="w3-opacity ">CEO & Founder</p>
-                        <p>Lớp CNTT - Đại học Bách Khoa Hà Nội <br>SĐT:0123456789</p>
-
-                    </div>
-                    <div class="col" >
-                        <img src="image/paris.jpg" class="rounded-circle w3-card" alt="Paris" width="304" height="200"> 
-                        <h3 >Nguyễn Văn B</h3>
-                        <p class="w3-opacity ">Developer</p>
-                        <p>Lớp CNTT - Đại học Bách Khoa Hà Nội <br>SĐT:0123456789</p>
-                    </div>
-                    <div class="col" >
-                        <img src="image/paris.jpg" class="rounded-circle w3-card" alt="Paris" width="304" height="200"> 
-                        <h3 >Nguyễn Văn C</h3>
-                        <p class="w3-opacity ">Tester</p>
-                        <p>Lớp CNTT - Đại học Bách Khoa Hà Nội <br>SĐT:0123456789</p>
-                    </div>
-                    <div class="col" >
-                        <img src="image/paris.jpg" class="rounded-circle w3-card" alt="Paris" width="304" height="200"> 
-                        <h3 >Nguyễn Văn A</h3>
-                        <p class="w3-opacity ">Thư kí</p>
-                        <p>Lớp CNTT - Đại học Bách Khoa Hà Nội <br>SĐT:0123456789</p>
-                    </div>
-
-                </div> 
-            </div>
-            <br>
-            <br>
-
-            <div id="section3" class="container-fluid "  >
-                <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">DIỄN ĐÀN</h3>
-            </div>
-
-            <div class="container" style="padding-top:20px;padding-bottom:20px">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <h2>Iphone ra siêu phẩm mới</h2>
-                        <p>Use the float classes to float the image to the left or to the right:</p> 
-                        <p>Use the float classes to float the image to the left or to the right:</p> 
-                        <p>Use the float classes to float the image to the left or to the right:</p>  
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="image/event1.jpg" class="" alt="Paris" width="304" height="200"> 
-                    </div>
-
-                </div>
-                <br> <br> <br> <br>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <h2>Aligning images</h2>
-                            <p>Use the float classes to float the image to the left or to the right:</p> 
-                            <p>Use the float classes to float the image to the left or to the right:</p> 
-                            <p>Use the float classes to float the image to the left or to the right:</p>  
-                        </div>
-                        <div class="col-sm-4">
-                            <img src="image/event2.jpg" class="" alt="Paris" width="304" height="200"> 
-                        </div>
-                    </div>
-
-                    <br> <br> <br> <br>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <h2>Aligning images</h2>
-                                <p>Use the float classes to float the image to the left or to the right:</p> 
-                                <p>Use the float classes to float the image to the left or to the right:</p> 
-                                <p>Use the float classes to float the image to the left or to the right:</p>  
-                            </div>
-                            <div class="col-sm-4">
-                                <img src="image/event3.jpg" class="" alt="Paris" width="304" height="200"> 
-                            </div>
-                        </div>
-
-
+                        <%
+                            }
+                        %>
                         <br> <br> <br> <br>
-                        <div class="container">
+                        <div id="section2" class="container-fluid "  >
+                            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">VỀ CHÚNG TÔI</h3>
+                        </div>
+
+                        <div class="container-fluid">
+
+                            <div class="row" style="padding-top:20px;padding-bottom:20px">
+                                <div class="col" >
+                                    <img src="image/paris.jpg" class="rounded-circle w3-card" alt="Paris" width="304" height="200"> 
+                                    <h3 >Nguyễn Văn A</h3>
+                                    <p class="w3-opacity ">CEO & Founder</p>
+                                    <p>Lớp CNTT - Đại học Bách Khoa Hà Nội <br>SĐT:0123456789</p>
+
+                                </div>
+                                <div class="col" >
+                                    <img src="image/paris.jpg" class="rounded-circle w3-card" alt="Paris" width="304" height="200"> 
+                                    <h3 >Nguyễn Văn B</h3>
+                                    <p class="w3-opacity ">Developer</p>
+                                    <p>Lớp CNTT - Đại học Bách Khoa Hà Nội <br>SĐT:0123456789</p>
+                                </div>
+                                <div class="col" >
+                                    <img src="image/paris.jpg" class="rounded-circle w3-card" alt="Paris" width="304" height="200"> 
+                                    <h3 >Nguyễn Văn C</h3>
+                                    <p class="w3-opacity ">Tester</p>
+                                    <p>Lớp CNTT - Đại học Bách Khoa Hà Nội <br>SĐT:0123456789</p>
+                                </div>
+                                <div class="col" >
+                                    <img src="image/paris.jpg" class="rounded-circle w3-card" alt="Paris" width="304" height="200"> 
+                                    <h3 >Nguyễn Văn A</h3>
+                                    <p class="w3-opacity ">Thư kí</p>
+                                    <p>Lớp CNTT - Đại học Bách Khoa Hà Nội <br>SĐT:0123456789</p>
+                                </div>
+
+                            </div> 
+                        </div>
+                        <br>
+                        <br>
+
+                        <div id="section3" class="container-fluid "  >
+                            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">DIỄN ĐÀN</h3>
+                        </div>
+
+                        <div class="container" style="padding-top:20px;padding-bottom:20px">
                             <div class="row">
                                 <div class="col-sm-8">
-                                    <h2>Aligning images</h2>
+                                    <h2>Iphone ra siêu phẩm mới</h2>
                                     <p>Use the float classes to float the image to the left or to the right:</p> 
                                     <p>Use the float classes to float the image to the left or to the right:</p> 
                                     <p>Use the float classes to float the image to the left or to the right:</p>  
                                 </div>
                                 <div class="col-sm-4">
-                                    <img src="image/event4.jpg" class="" alt="Paris" width="304" height="200"> 
+                                    <img src="image/event1.jpg" class="" alt="Paris" width="304" height="200"> 
+                                </div>
+
+                            </div>
+                            <br> <br> <br> <br>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <h2>Aligning images</h2>
+                                        <p>Use the float classes to float the image to the left or to the right:</p> 
+                                        <p>Use the float classes to float the image to the left or to the right:</p> 
+                                        <p>Use the float classes to float the image to the left or to the right:</p>  
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <img src="image/event2.jpg" class="" alt="Paris" width="304" height="200"> 
+                                    </div>
+                                </div>
+
+                                <br> <br> <br> <br>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h2>Aligning images</h2>
+                                            <p>Use the float classes to float the image to the left or to the right:</p> 
+                                            <p>Use the float classes to float the image to the left or to the right:</p> 
+                                            <p>Use the float classes to float the image to the left or to the right:</p>  
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <img src="image/event3.jpg" class="" alt="Paris" width="304" height="200"> 
+                                        </div>
+                                    </div>
+
+
+                                    <br> <br> <br> <br>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <h2>Aligning images</h2>
+                                                <p>Use the float classes to float the image to the left or to the right:</p> 
+                                                <p>Use the float classes to float the image to the left or to the right:</p> 
+                                                <p>Use the float classes to float the image to the left or to the right:</p>  
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <img src="image/event4.jpg" class="" alt="Paris" width="304" height="200"> 
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
-    </body>
-</html>
+                    </body>
+                    </html>
