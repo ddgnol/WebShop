@@ -40,6 +40,7 @@
                 <a href="#khachhang" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Khách hàng</a> 
                 <a href="#sanphamduocquantam" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Sản phẩm được quan tâm</a>
                 <a href="index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Trở lại trang chủ</a>
+                <a href="logout" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Đăng xuất</a>
             </div>
 
         </nav>
@@ -95,7 +96,7 @@
                     <h1>Thêm sản phẩm</h1>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                               for="ProductId">MA SAN PHAM </label>
+                               for="ProductId">Mã sản phẩm: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="text" id="id" required="required"
                                    class="form-control col-md-7 col-xs-12" name="id">
@@ -104,7 +105,7 @@
                     <!--                    <input class="w3-input w3-padding-16" type="text" placeholder="Mã sản phẩm"  name="id" id="id" required>-->
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                               for="productName">Tên sản phẩm </label>
+                               for="productName">Tên sản phẩm:</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="text" id="name" required="required"
                                    class="form-control col-md-7 col-xs-12" name="name">
@@ -129,7 +130,7 @@
                     <!--                                        <input class="w3-input w3-padding-16" type="text" placeholder="Price"  name="price" id="price" required >-->
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                               for="productName">Price </label>
+                               for="productName">Price:</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="text" id="price" required="required"
                                    class="form-control col-md-7 col-xs-12" name="price">
@@ -137,7 +138,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                               for="productName">Mo ta </label>
+                               for="productName">Mô tả:</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="text" id="describe" required="required"
                                    class="form-control col-md-7 col-xs-12" name="describe">
@@ -154,7 +155,7 @@
                     </div>
 
                 </div>
-                <input style="width:400px; height: 50px; margin:  50px" type = "submit" value = "Them san pham" />
+                <input style="width:400px; height: 50px; margin:  50px" type = "submit" value = "Thêm sản phẩm" />
             </form>
             <!-- First Photo Grid-->
 
