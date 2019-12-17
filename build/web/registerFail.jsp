@@ -20,8 +20,8 @@
         <jsp:include page="header.jsp"></jsp:include>
         <div class="w3-container w3-padding-64" style="margin: 200px">
             <div class="alert alert-danger">
-  <strong>Thất bại</strong> Mã khách hàng của bạn đã được sử dụng. Mời bạn chọn 1 mã khác
-</div>
+                 <strong>Thất bại</strong> Mã khách hàng của bạn đã được sử dụng. Mời bạn chọn 1 mã khác
+            </div>
     <h1>Đăng kí</h1><br>
     
     <form action="Register" >

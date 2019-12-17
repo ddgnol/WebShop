@@ -80,7 +80,7 @@
                                 <td>${pro.price}</td>
                                 <td>${pro.describe}</td>
                                 <td>
-                                    <a href="<c:url value="EditProduct?${pro.id}"/>">Sửa</a>
+                                    <a href="<c:url value="EditProduct?${pro.id}"/>"><button>Sửa</button></a>
 
                                     <form action="DeleteProduct?id=${pro.id}" method="post">
                                         <button>Xóa</button>
@@ -172,7 +172,8 @@
                             <th>Mã khách hàng</th>
                             <th>Mã sản phẩm</th>
                             <th>Tên sản phẩm</th>
-                            <th>GIÁ</th>
+                            <th>Đơn giá</th>
+                            <th>Số lượng</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -182,6 +183,7 @@
                                 <td>${order.idPro}</td>
                                 <td>${order.namePro}</td>
                                 <td>${order.price}</td>
+                                <td>${order.status}</td>
                             </tr>
                         </c:forEach> 
                     </tbody>

@@ -3,6 +3,7 @@ package Controller;
 
 import DAO.ProductDAO;
 import Model.Customer;
+import Model.ProCart;
 import Model.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,7 +40,7 @@ public class DeleteProInCart extends HttpServlet {
           //  System.out.println("idCus="+cus.getId());
             proDAO.deleteProInCart(cus.getId(),idPro);
             
-            List<Product> list = proDAO.getCartByIdCus(cus.getId());
+            List<ProCart> list = proDAO.getProCartByIdCus(cus.getId());
             request.setAttribute("cartPro", list);
             
             RequestDispatcher rd = request.getRequestDispatcher("cart.jsp");

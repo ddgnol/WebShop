@@ -3,6 +3,7 @@ package Controller;
 
 import DAO.ProductDAO;
 import Model.Customer;
+import Model.ProCart;
 import Model.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -42,7 +43,7 @@ public class CartServlet extends HttpServlet {
             }else{
             //System.out.println(cus.getId());
                
-            List<Product> list = proDAO.getCartByIdCus(cus.getId());
+            List<ProCart> list = proDAO.getProCartByIdCus(cus.getId());
             request.setAttribute("cartPro", list);
             
             RequestDispatcher rd = request.getRequestDispatcher("cart.jsp");

@@ -1,4 +1,3 @@
-
 package Controller;
 
 import DAO.AccountDAO;
@@ -17,29 +16,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 @WebServlet(name = "CustomerServlet", urlPatterns = {"/customer"})
 public class CustomerServlet extends HttpServlet {
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        
+
         try {
             HttpSession session = request.getSession(false);
             Customer customer = (Customer) session.getAttribute("cus");
-            AccountDAO accDAO = new AccountDAO();
-            Account acc = accDAO.getAccountById(customer.getId());
-            request.setAttribute("account", acc);
-            request.setAttribute("customer", customer);
-            
-            RequestDispatcher rd =request.getRequestDispatcher("customer.jsp");
-            rd.forward(request, response);
-            
+            if (customer == null) {
+                RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+                rd.forward(request, response);
+            } else {
+                AccountDAO accDAO = new AccountDAO();
+                Account acc = accDAO.getAccountById(customer.getId());
+                request.setAttribute("account", acc);
+                request.setAttribute("customer", customer);
+
+                RequestDispatcher rd = request.getRequestDispatcher("customer.jsp");
+                rd.forward(request, response);
+            }
         } catch (SQLException ex) {
             System.out.println("loi o day");
             Logger.getLogger(CustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -49,12 +50,10 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
-    
 }

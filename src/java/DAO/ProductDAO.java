@@ -6,6 +6,7 @@
 package DAO;
 
 import DBConnection.DBConnection;
+import Model.ProCart;
 import Model.Product;
 import Model.orderCart;
 import java.sql.Connection;
@@ -127,7 +128,7 @@ public class ProductDAO {
         //  System.out.println("okkkkk");
         return list;
     }
-
+    
     public Product getProById(String id) throws ClassNotFoundException, SQLException {
 
         Product pro = new Product();
@@ -148,9 +149,9 @@ public class ProductDAO {
         return pro;
     }
 
-    public void addToCart(String idPro, String idCus, String name, int price) throws ClassNotFoundException, SQLException {
+    public void addToCart(String idPro, String idCus, String name, int price,int status) throws ClassNotFoundException, SQLException {
 
-        String query = "INSERT INTO orderCart VALUES ('" + idCus + "','" + idPro + "',N'" + name + "'," + price + ",1)";
+        String query = "INSERT INTO orderCart VALUES ('" + idCus + "','" + idPro + "',N'" + name + "'," + price + ","+status+")";
 
         //   System.out.println(query);
         Connection conn = DBConnection.getConnection();
@@ -293,7 +294,7 @@ public class ProductDAO {
     
     public void editProduct(Product product){
         try {
-            String sql = " update product set name= ?,category= ?,price=?,describe=?,img=? where id=? ; ";
+            String sql = " update product set name=?,category=?,price=?,describe=?,img=? where id=? ; ";
             Connection connection = DBConnection.getConnection();
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, product.getName());
@@ -335,6 +336,29 @@ public class ProductDAO {
         }
         return list;
     }
+    
+    public List<ProCart> getProCartByIdCus(String id) throws ClassNotFoundException, SQLException {
 
-
+        List<ProCart> list = new ArrayList<ProCart>();
+        String query = "Select id, name,category,product.price,describe,img,orderCart.status from  product,orderCart where id=idPro and idCustomer='" + id + "'";
+        //   System.out.println(query);
+        Connection conn = DBConnection.getConnection();
+        sm = conn.createStatement();
+        rs = sm.executeQuery(query);
+        //   System.out.println(query);
+        while (rs.next()) {
+            ProCart proCart = new ProCart();           
+            proCart.setId(rs.getString(1));
+            proCart.setName(rs.getString(2));
+            proCart.setCategory(rs.getString(3));
+            proCart.setPrice(rs.getInt(4));
+            proCart.setDescribe(rs.getString(5));
+            proCart.setImg(rs.getString(6));
+            proCart.setStatus(rs.getInt(7));
+            list.add(proCart);
+        }
+        
+        return list;
+    }
+    
 }

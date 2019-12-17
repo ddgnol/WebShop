@@ -1,4 +1,3 @@
-
 package Controller;
 
 import DAO.ProductDAO;
@@ -17,15 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 @WebServlet(name = "AddToCart", urlPatterns = {"/AddToCart"})
 public class AddToCart extends HttpServlet {
-    
 
-   
-   
-
-   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -35,34 +28,35 @@ public class AddToCart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
         Customer cus = (Customer) session.getAttribute("cus");
-        
-        if(cus==null){
+
+        if (cus == null) {
             RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
             rd.forward(request, response);
-        }else{
-         //  System.out.println(cus.getId());
-           try {
-               
-               
-          
-             String idPro = request.getParameter("id");
-             
-             ProductDAO  proDAO = new ProductDAO();
-            Product pro = proDAO.getProById(idPro);
-             proDAO.addToCart(idPro, cus.getId(), pro.getName(), pro.getPrice());
-             
-           } catch (ClassNotFoundException ex) {
-               Logger.getLogger(AddToCart.class.getName()).log(Level.SEVERE, null, ex);
-           } catch (SQLException ex) {
-               Logger.getLogger(AddToCart.class.getName()).log(Level.SEVERE, null, ex);
-           }
-            
+        } else {
+            //  System.out.println(cus.getId());
+            try {
+
+                String idPro = request.getParameter("id");               
+                int status ;//số lượng
+                if(request.getParameter("soLuong").equals(""))
+                    status=1;
+                else
+                    status = Integer.parseInt(request.getParameter("soLuong"));
+                ProductDAO proDAO = new ProductDAO();
+                Product pro = proDAO.getProById(idPro);
+                proDAO.addToCart(idPro, cus.getId(), pro.getName(), pro.getPrice(),status);
+               request.setAttribute("pro",pro);
+                 request.setAttribute("error", "Thành công . Sản phẩm đã được thêm vào giỏ hàng");
+               request.getRequestDispatcher("detailPro.jsp").forward(request, response);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(AddToCart.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(AddToCart.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
     }
-
-    
-  
 
 }

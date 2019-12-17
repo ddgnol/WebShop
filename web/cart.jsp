@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@page import="Model.ProCart"%>
 <%@page import="Model.Product"%>
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -34,10 +35,11 @@
                             <thead>
                                 <tr class="bg-light">
                                     <th class="p-2 px-3">SẢN PHẨM</th>
-                                    <TH class="py-2"> Mã hàng</TH>
-                                    <TH class="py-2"> Giá</TH>
-                                    <th class="py-2">Xóa</th>
-                                    <th class="py-2">Theo dõi</th>
+                                    <th class="py-2"> Mã hàng</th>
+                                    <th class="py-2"> Đơn giá</th>
+                                    <th class="py-2"> Số lượng</th>
+                                    <th class="py-2"> Xóa</th>
+                                    <th class="py-2"> Theo dõi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,6 +63,9 @@
                                     </td>
                                     <td class="align-middle">
                                         <strong>${pro.price}</strong>
+                                    </td>
+                                    <td class="align-middle">
+                                        <strong>${pro.status}</strong>
                                     </td>
                                     <td class="align-middle">
                                         <a  href="DeleteProInCart?id=${pro.id}" ><i class="fa fa-trash"></i></a>
@@ -92,11 +97,11 @@
                     <div style="margin: 20px; color: gray">
                         <h3 >Tổng tiền:</h3>
                         <%
-                            List<Product> list
-                                    = (List<Product>) request.getAttribute("cartPro");
+                            List<ProCart> list
+                                    = (List<ProCart>) request.getAttribute("cartPro");
                             int sum = 0;
-                            for (Product p : list) {
-                                sum += p.getPrice();
+                            for (ProCart p : list) {
+                                sum += p.getPrice()*p.getStatus();
                             }
                         %>
                         <h2><%=sum%></h2>
