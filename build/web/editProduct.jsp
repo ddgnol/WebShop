@@ -24,12 +24,12 @@
         
         <div>
         
-        <form action="EditProduct" method="POST">
+        <form action="EditProduct" method="post">
                 <div  style="margin:20px">
                     <h1>Sửa sản phẩm</h1>
                     <div>
                         <label for="id">Mã Sản Phẩm:</label>
-                        <!--<input class="w3-input w3-padding-16" type="text" name="id" value="${id}" id="id" readonly>-->
+                        <input class="w3-input w3-padding-16" type="text" name="id" value="${id}" id="id" hidden>
                         <a style="color: red;font-weight:500">${id}</a>
                     </div>
                     <div>
