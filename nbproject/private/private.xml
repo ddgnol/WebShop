@@ -3,23 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/src/java/Controller/CartServlet.java</file>
-            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/web/cart.jsp</file>
+            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/web/admin.jsp</file>
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/src/java/Controller/AddToCart.java</file>
+            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/src/java/Model/ProCart.java</file>
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/web/detailPro.jsp</file>
+            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/src/java/Controller/EditProductServlet.java</file>
+            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/web/cart.jsp</file>
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/src/java/Controller/UpdateCart.java</file>
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/src/java/DAO/ProductDAO.java</file>
-            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/src/java/Controller/ProDetail.java</file>
-            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/src/java/Model/ProCart.java</file>
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/src/java/Controller/DeleteProInCart.java</file>
-=======
-            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/DAO/ProductDAO.java</file>
-            <file>file:/C:/Users/Admin/Downloads/WebShop/web/admin.jsp</file>
-            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/Controller/EditProductServlet.java</file>
-            <file>file:/C:/Users/Admin/Downloads/WebShop/web/editProduct.jsp</file>
-            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/Model/Product.java</file>
->>>>>>> 63122742cd3a8bfe20de75291e8e853aa782771e
+            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder/WebShop/src/java/Controller/ProDetail.java</file>
         </group>
     </open-files>
 </project-private>

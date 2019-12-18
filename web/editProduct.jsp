@@ -88,7 +88,7 @@
                                 <h3 style="color: red">${error}</h3>
                                 <h1>Sửa sản phẩm</h1>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                    <label class="control-label" style="margin-left: 10px "
                                            for="ProductId">Mã sản phẩm: </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" id="id" required="required"
@@ -97,7 +97,7 @@
                                 </div>
                                 <!--                    <input class="w3-input w3-padding-16" type="text" placeholder="Mã sản phẩm"  name="id" id="id" required>-->
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                    <label class="control-label" style="margin-left: 10px "
                                            for="productName">Tên sản phẩm:</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" id="name" required="required"
