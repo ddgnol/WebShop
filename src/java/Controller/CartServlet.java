@@ -45,7 +45,7 @@ public class CartServlet extends HttpServlet {
                
             List<ProCart> list = proDAO.getProCartByIdCus(cus.getId());
             request.setAttribute("cartPro", list);
-            
+            request.setAttribute("idCus", cus.getId());
             RequestDispatcher rd = request.getRequestDispatcher("cart.jsp");
             rd.forward(request, response);
             

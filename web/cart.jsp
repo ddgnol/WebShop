@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@page import="Model.Customer"%>
 <%@page import="Model.ProCart"%>
 <%@page import="Model.Product"%>
 <%@page import="java.util.List"%>
@@ -66,9 +67,9 @@
                                     </td>
                                     <td class="align-middle">
                                         <div class="quaty slg" style="width: 100px" >
-<!--                                            <button onclick="sub();" type="button" class="btn btn-link">-</button>   
-                                            <span id="sl"> ${pro.status} </span>
-                                            <button onclick="add();" type="button" class="btn btn-link" >+</button> -->
+                                            <!--                                            <button onclick="sub();" type="button" class="btn btn-link">-</button>   
+                                                                                        <span id="sl"> ${pro.status} </span>
+                                                                                        <button onclick="add();" type="button" class="btn btn-link" >+</button> -->
                                             <form action="UpdateCart" method="post">
                                                 <input type="hidden" name="id" value="${pro.id}">
                                                 <input type="number" name="soLuong" id="soLuong" min="0" max="100" value="${pro.status}">
@@ -120,7 +121,7 @@
                     <div id="demo" class="collapse alert alert-success">
                         <strong>Thành công .</strong> Sản phẩm của bạn sẽ được gửi về địa chỉ đăng kí trong 2, 3 ngày tới.
                     </div>
-                    <button class="btn btn-block btn-info" data-toggle="collapse" data-target="#demo">Thanh toán</button>
+                    <a href="/CheckOut"><button class="btn btn-block btn-info" data-toggle="collapse">Thanh toán</button></a>
                 </div>
             </div>
 

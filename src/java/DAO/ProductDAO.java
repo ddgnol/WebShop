@@ -6,6 +6,8 @@
 package DAO;
 
 import DBConnection.DBConnection;
+import Model.Bill;
+import Model.BillDetail;
 import Model.ProCart;
 import Model.Product;
 import Model.orderCart;
@@ -375,4 +377,39 @@ public class ProductDAO {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void insertBill(Bill bill) throws SQLException, ClassNotFoundException{
+        String sql = "INSERT INTO bill VALUES(?,?,?,?,?,?)";
+        Connection con =  DBConnection.getConnection();
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, bill.getId_cus());
+        ps.setString(2, bill.getAddress());
+        ps.setString(3, bill.getPhone());
+        ps.setString(4, bill.getPayment());
+        ps.setInt(5, bill.getPrice());
+        ps.setString(6, bill.getStatus());
+        ps.executeUpdate();
+    }
+    public void insertDetailBill(BillDetail bd) throws ClassNotFoundException, SQLException{
+        String sql = "INSERT INTO billdetail VALUES(?,?,?)";
+        Connection con =  DBConnection.getConnection();
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, bd.getId());
+        ps.setString(2, bd.getId_pro());
+        ps.setInt(3, bd.getNumber());
+        ps.executeUpdate();
+        
+    }
+    public Bill getLastestBill() throws ClassNotFoundException, SQLException{
+        String sql = "SECLECT TOP 1 * FROM bill ORDER BY id";
+        Bill bill = new Bill();
+        Connection conn = DBConnection.getConnection();
+        sm = conn.createStatement();
+        rs = sm.executeQuery(sql);
+        while(rs.next()){
+            bill.setId(rs.getInt(1));
+        }
+        return bill;
+        
+    }
+    
 }

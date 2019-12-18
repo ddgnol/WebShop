@@ -99,9 +99,9 @@
                                 <div class="form-group">
                                     <label class="control-label" style="margin-left: 10px "
                                            for="productName">Tên sản phẩm:</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div style="margin-left: 10px">
                                         <input type="text" id="name" required="required"
-                                               class="form-control col-md-7 col-xs-12" name="name" value="${pro.name}">
+                                               class="form-control " name="name" value="${pro.name}">
                                     </div>
                                 </div>
                                 <!--                    <input class="w3-input w3-padding-16" type="text" placeholder="Tên sản phẩm"  name="name" required>-->
