@@ -150,7 +150,7 @@
                                 <div class="row" style="margin: 20px">
                                 <input style="width:150px; height: 50px; margin:  30px" type = "submit" value = "Update" />
                                 <button style="margin: 30px; width: 150px; height: 50px">
-                                    <a href="<c:url value="/AdminView"/>">Quay lai</a>
+                                    <a href="<c:url value="/AdminView"/>">Quay lại</a>
                                 </button>
                             </div>
 

@@ -37,7 +37,7 @@
             <div class="w3-bar-block">
                 <a href="#sanpham" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Sản phẩm</a> 
                 <a href="#updateProduct" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Thêm sản phẩm</a>
-                <a href="#khachhang" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Khách hàng</a> 
+                <a href="AdminBillServlet" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Quản lý hóa đơn khách hàng</a> 
                 <a href="#sanphamduocquantam" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Sản phẩm được quan tâm</a>
                 <a href="index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Trở lại trang chủ</a>
                 <a href="logout" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Đăng xuất</a>
@@ -162,33 +162,6 @@
 
             <!-- Pagination -->
 
-            <div id="khachhang">
-                <h2 style="padding:10px"><strong>Hóa đơn khách hàng</strong></h2>
-            </div>
-            <div class="container">           
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th>Mã khách hàng</th>
-                            <th>Mã sản phẩm</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Đơn giá</th>
-                            <th>Số lượng</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="order" items="${listOrder}">
-                            <tr>
-                                <td>${order.idCustomer}</td>
-                                <td>${order.idPro}</td>
-                                <td>${order.namePro}</td>
-                                <td>${order.price}</td>
-                                <td>${order.status}</td>
-                            </tr>
-                        </c:forEach> 
-                    </tbody>
-                </table>
-            </div>
 
 
 

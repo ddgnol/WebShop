@@ -3,11 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/Downloads/WebShop/web/CheckOut.jsp</file>
             <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/DAO/ProductDAO.java</file>
-            <file>file:/C:/Users/Admin/Downloads/WebShop/web/cart.jsp</file>
-            <file>file:/C:/Users/Admin/Downloads/WebShop/web/header.jsp</file>
-            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/Controller/CheckOut.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/Controller/CustomerServlet.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop/web/admin.jsp</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop/web/allBill.jsp</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/Controller/AdminBillServlet.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/Controller/EditBillServlet.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/Controller/AdminView.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/Controller/AddProduct.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/Controller/CustomerCart.java</file>
         </group>
     </open-files>
 </project-private>

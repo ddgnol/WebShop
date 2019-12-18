@@ -28,9 +28,7 @@
 
             </div>
             <div class="w3-bar-block">
-                <a href="updatecustomer" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Sửa thông tin</a> 
-                <a href="updateaccount" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Sửa mật khẩu</a>
-                <a href="thanhtoan.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Thông tin thanh toán</a>
+                <a href="CustomerCart" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Quản lý đơn hàng</a> 
                 <a href="index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Quay lại trang chủ</a>
             </div>
         </nav>
@@ -39,40 +37,43 @@
         <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
         <!-- !PAGE CONTENT! -->
-        <h2 style="color: red; margin-left: 350px;">${error}</h2>
         <div class="w3-main" style="margin-left:300px">
 
-           <!-- update thông tin -->
-            <form action="updatecustomer" method="POST">
-                <input  type="text" name="id" value="${customer.id}" hidden>
-                <div id="updateCustomer" class="container " style="margin:20px">
-                    <h1>Hồ sơ của tôi</h1>
-                    <table>
-                        <tr>
-                            <td>Tên KH:</td>
-                            <td><input class="w3-input w3-padding-16" type="text" value="${customer.name}"  name="name" required></td>
-                        </tr>
-                        <tr>
-                            <td>Ngày sinh:</td> 
-                            <td><input class="w3-input w3-padding-16" type="date" value="${customer.dateOfBirth}"  name="date" ></td>
-                        </tr>
-                        <tr>
-                            <td>Số điện thoại:</td> 
-                            <td><input class="w3-input w3-padding-16" type="number" value="${customer.phoneNum}"  name="phone" required></td>
-                        </tr>
-                        <tr>
-                            <td>Email:</td> 
-                            <td><input class="w3-input w3-padding-16" type="text" value="${customer.email}" name="email"></td>
-                        </tr>
-                        <tr>
-                            <td>Địa chỉ:</td> 
-                            <td><input class="w3-input w3-padding-16" type="text" value="${customer.address}" name="address"></td>
-                        </tr>
-                        
+           
+                <div class="col-lg-9 p-5  rounded  ">
+                    <h1>Chi tiết đơn hàng</h1> <br>
+                    <div>
+                        <label>Mã đơn: </label>
+                        <a style="color: red;font-weight:500">${id}</a>
+                    </div>
+                    <table class="table">
+                            <thead>
+                                <tr class="bg-light">
+                                    <th class="p-2 px-3">Tên sản phẩm</th>
+                                    <th class="py-2">Số lượng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <c:forEach var="b" items="${list}">
+                                    <tr >
+
+                                        <td class="align-middle">
+                                            <strong>${b.id_pro}</strong>
+                                        </td>
+                                        <td class="align-middle">
+                                            <strong>${b.number}</strong>
+                                        </td
+                                    </tr>
+
+                                </c:forEach>
+                        </tbody>
                     </table>
+
+
                 </div>
-                <input style="width:400px; height: 50px; margin:  50px" type = "submit" value = "Update" />
-            </form>
+
+            
         </div>
 
         <script>
