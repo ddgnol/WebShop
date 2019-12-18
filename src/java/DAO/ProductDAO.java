@@ -378,7 +378,8 @@ public class ProductDAO {
         }
     }
     public void insertBill(Bill bill) throws SQLException, ClassNotFoundException{
-        String sql = "INSERT INTO bill VALUES(?,?,?,?,?,?)";
+        String day = "getdate()";
+        String sql = "INSERT INTO bill VALUES(?,?,?,?,?,"+day+",?)";
         Connection con =  DBConnection.getConnection();
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, bill.getId_cus());
@@ -400,7 +401,7 @@ public class ProductDAO {
         
     }
     public Bill getLastestBill() throws ClassNotFoundException, SQLException{
-        String sql = "SECLECT TOP 1 * FROM bill ORDER BY id";
+        String sql = "SELECT TOP 1 * FROM bill ORDER BY id DESC";
         Bill bill = new Bill();
         Connection conn = DBConnection.getConnection();
         sm = conn.createStatement();

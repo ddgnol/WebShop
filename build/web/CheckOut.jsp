@@ -14,6 +14,7 @@
                 <div class="main_container">
                     <div class="row">
                         <div class="profile-content">
+                            <h3 style="color: red">${error}</h3>
                             <div class="x_title col-md-12">
                                 <h2 style="text-align: center;">Nhập thông tin thanh toán</h2>
                             </div>
@@ -27,14 +28,14 @@
                                                                      class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <span>Số điện thoại</span> <input type="text" name="address"
+                                        <span>Số điện thoại</span> <input type="text" name="phone"
                                                                      class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <span>Hình thức thanh toán </span> <select name="payment"
-                                                                                   class="form-control">
-                                            <option value="live">Thanh toán ngay</option>
-                                            <option value="bank">Thanh toán khi nhận hàng</option>
+                                        <span>Hình thức thanh toán </span> 
+                                        <select name="payment" class="form-control">
+                                            <option value="Thanh toán khi nhận hàng">Thanh toán khi nhận hàng</option>
+                                            <option value="Thanh toán ngay">Thanh toán ngay</option>
                                         </select>
                                     </div>
                                     <input class="btn btn-success" type="submit" value="Checkout">

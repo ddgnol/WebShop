@@ -121,7 +121,7 @@
                     <div id="demo" class="collapse alert alert-success">
                         <strong>Thành công .</strong> Sản phẩm của bạn sẽ được gửi về địa chỉ đăng kí trong 2, 3 ngày tới.
                     </div>
-                    <a href="/CheckOut"><button class="btn btn-block btn-info" data-toggle="collapse">Thanh toán</button></a>
+                    <a href="CheckOut.jsp"><button class="btn btn-block btn-info" data-toggle="collapse">Thanh toán</button></a>
                 </div>
             </div>
 

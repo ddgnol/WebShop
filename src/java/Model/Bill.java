@@ -17,6 +17,15 @@ public class Bill {
     String address;
     String phone;
     String payment;
+    String order_day;
+
+    public String getOrder_day() {
+        return order_day;
+    }
+
+    public void setOrder_day(String order_day) {
+        this.order_day = order_day;
+    }
 
     public int getId() {
         return id;
