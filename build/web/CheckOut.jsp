@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>Thanh Toan</title>
+        <title>Thanh Toán</title>
 
     </head>
     <body>
@@ -46,6 +46,7 @@
                     </div>
                 </div>
             </div>
+            <br><br><br>
         <jsp:include page="footer.jsp"></jsp:include>
 
     </body>

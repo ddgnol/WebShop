@@ -66,6 +66,10 @@
                 <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center ">
                     <ul class="navbar-nav  ">
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.jsp">TRANG CHỦ</a>
+
+                        </li>
 
                         <li class="nav-item ">
                             <form action="products" method="get">
