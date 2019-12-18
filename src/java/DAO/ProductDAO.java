@@ -21,7 +21,6 @@ import java.util.logging.Logger;
 
 public class ProductDAO {
 
-
     private Statement sm;
     private ResultSet rs;
     private int numberOfPro;
@@ -128,7 +127,7 @@ public class ProductDAO {
         //  System.out.println("okkkkk");
         return list;
     }
-    
+
     public Product getProById(String id) throws ClassNotFoundException, SQLException {
 
         Product pro = new Product();
@@ -149,9 +148,9 @@ public class ProductDAO {
         return pro;
     }
 
-    public void addToCart(String idPro, String idCus, String name, int price,int status) throws ClassNotFoundException, SQLException {
+    public void addToCart(String idPro, String idCus, String name, int price, int status) throws ClassNotFoundException, SQLException {
 
-        String query = "INSERT INTO orderCart VALUES ('" + idCus + "','" + idPro + "',N'" + name + "'," + price + ","+status+")";
+        String query = "INSERT INTO orderCart VALUES ('" + idCus + "','" + idPro + "',N'" + name + "'," + price + "," + status + ")";
 
         //   System.out.println(query);
         Connection conn = DBConnection.getConnection();
@@ -268,10 +267,10 @@ public class ProductDAO {
 
     }
 
-    public void addProduct(Product product){
+    public void addProduct(Product product) {
         try {
             String sql = "INSERT INTO product(id, name, category, price, describe, img) VALUES (?,?,?,?,?,?);";
-            
+
             Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, product.getId());
@@ -288,11 +287,10 @@ public class ProductDAO {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       
+
     }
-    
-    public void editProduct(Product product){
+
+    public void editProduct(Product product) {
         try {
             String sql = " update product set name=?,category=?,price=?,describe=?,img=? where id=? ; ";
             Connection connection = DBConnection.getConnection();
@@ -312,9 +310,10 @@ public class ProductDAO {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public List<Product> searchPro(int offset, int recordsOfPage, String name) throws ClassNotFoundException, SQLException {
         List<Product> list = new ArrayList<Product>();
-        String query = "select * from Product where name LIKE '%"+name+"%' order by id offset " + offset + "  rows fetch next " + recordsOfPage + " rows only;";
+        String query = "select * from Product where name LIKE '%" + name + "%' order by id offset " + offset + "  rows fetch next " + recordsOfPage + " rows only;";
         Connection conn = DBConnection.getConnection();
         sm = conn.createStatement();
         rs = sm.executeQuery(query);
@@ -330,13 +329,13 @@ public class ProductDAO {
             list.add(pro);
         }
         rs.close();
-        rs = sm.executeQuery("SELECT count(*) from product where name ='%"+name+"'");
+        rs = sm.executeQuery("SELECT count(*) from product where name ='%" + name + "'");
         if (rs.next()) {
             this.numberOfPro = rs.getInt(1);
         }
         return list;
     }
-    
+
     public List<ProCart> getProCartByIdCus(String id) throws ClassNotFoundException, SQLException {
 
         List<ProCart> list = new ArrayList<ProCart>();
@@ -347,7 +346,7 @@ public class ProductDAO {
         rs = sm.executeQuery(query);
         //   System.out.println(query);
         while (rs.next()) {
-            ProCart proCart = new ProCart();           
+            ProCart proCart = new ProCart();
             proCart.setId(rs.getString(1));
             proCart.setName(rs.getString(2));
             proCart.setCategory(rs.getString(3));
@@ -357,8 +356,23 @@ public class ProductDAO {
             proCart.setStatus(rs.getInt(7));
             list.add(proCart);
         }
-        
+
         return list;
     }
-    
+
+    public void updateCart(String idPro, int status, String idCustomer) {
+        try {
+            String query = "UPDATE orderCart SET status = ? where idCustomer = ? and idPro = ?;";
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, status);
+            ps.setString(2, idCustomer);
+            ps.setString(3, idPro);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

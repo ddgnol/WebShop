@@ -65,7 +65,18 @@
                                         <strong>${pro.price}</strong>
                                     </td>
                                     <td class="align-middle">
-                                        <strong>${pro.status}</strong>
+                                        <div class="quaty slg" style="width: 100px" >
+<!--                                            <button onclick="sub();" type="button" class="btn btn-link">-</button>   
+                                            <span id="sl"> ${pro.status} </span>
+                                            <button onclick="add();" type="button" class="btn btn-link" >+</button> -->
+                                            <form action="UpdateCart" method="post">
+                                                <input type="hidden" name="id" value="${pro.id}">
+                                                <input type="number" name="soLuong" id="soLuong" min="0" max="100" value="${pro.status}">
+                                                <button type="submit" class="btn btn-outline-danger" data-toggle="collapse"  data-target="#demo">Update<i></i></button>
+                                            </form> 
+                                        </div>
+
+<!--                                        <strong>${pro.status}</strong>-->
                                     </td>
                                     <td class="align-middle">
                                         <a  href="DeleteProInCart?id=${pro.id}" ><i class="fa fa-trash"></i></a>
@@ -101,7 +112,7 @@
                                     = (List<ProCart>) request.getAttribute("cartPro");
                             int sum = 0;
                             for (ProCart p : list) {
-                                sum += p.getPrice()*p.getStatus();
+                                sum += p.getPrice() * p.getStatus();
                             }
                         %>
                         <h2><%=sum%></h2>
@@ -116,6 +127,22 @@
 
         </div>
         <jsp:include page="footer.jsp"></jsp:include>
+        <script type="text/javascript">
+            function add() {
+                var soluong = parseInt($("#sl").html());
+                soluong += 1;
+                $("#sl").html(soluong);
+                $("#soLuong").val(soluong);
+            }
+            function sub() {
+                var soluong = parseInt($("#sl").html());
+                if (soluong > 1) {
+                    soluong -= 1;
+                    $("#sl").html(soluong);
+                    $("#soLuong").val(soluong);
+                }
 
+            }
+        </script>
     </body>
 </html>

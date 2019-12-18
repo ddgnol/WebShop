@@ -140,8 +140,8 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12"
                                for="productName">Mô tả:</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="describe" required="required"
-                                   class="form-control col-md-7 col-xs-12" name="describe">
+                            <textarea rows="4" cols="50" type="text" id="describe" required="required"
+                                      class="form-control col-md-7 col-xs-12" name="describe"></textarea>
                         </div>
                     </div>
                     <!--                    <input class="w3-input w3-padding-16" type="text" placeholder="describe"  name="describe" id="describe" required >-->

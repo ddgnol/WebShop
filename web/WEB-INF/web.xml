@@ -8,6 +8,14 @@
         <servlet-name>searchPro</servlet-name>
         <servlet-class>Controller.searchPro</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdatePro</servlet-name>
+        <servlet-class>Controller.UpdatePro</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCart</servlet-name>
+        <servlet-class>Controller.UpdateCart</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>deleteProFromCart</servlet-name>
         <url-pattern>/deleteProFromCart</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>searchPro</servlet-name>
         <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePro</servlet-name>
+        <url-pattern>/UpdatePro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCart</servlet-name>
+        <url-pattern>/UpdateCart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

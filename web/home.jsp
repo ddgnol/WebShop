@@ -65,7 +65,7 @@
                 <div class="w3-col l3 s6">
                     <div class="w3-container border">
                         <div class="w3-display-container " >
-                            <img src="<%=listPhone.get(i).getImg()%>" style="width: 100%">
+                            <img src="<%=listPhone.get(i).getImg()%>" style="width: 100%; height: 380px">
                             <span class="w3-tag w3-display-topleft w3-red">New</span>
                             <div class="w3-display-middle w3-display-hover">
                                 <a href="ProDetail?id=<%=listPhone.get(i).getId()%>">
@@ -135,7 +135,7 @@
                     <div class="w3-col l3 s6">
                         <div class="w3-container border">
                             <div class="w3-display-container " >
-                                <img src="<%=listLaptop.get(i).getImg()%>" style="width: 100%">
+                                <img src="<%=listLaptop.get(i).getImg()%>" style="width: 100%; height: 380px">
                                 <span class="w3-tag w3-display-topleft w3-red">New</span>
                                 <div class="w3-display-middle w3-display-hover">
                                     <a href="ProDetail?id=<%=listLaptop.get(i).getId()%>">
@@ -166,7 +166,7 @@
                         <div class="w3-col l3 s6">
                             <div class="w3-container border">
                                 <div class="w3-display-container " >
-                                    <img src="<%=listCam.get(i).getImg()%>" style="width: 100%">
+                                    <img src="<%=listCam.get(i).getImg()%>" style="width: 100%; height: 380px">
                                     <span class="w3-tag w3-display-topleft w3-red">New</span>
                                     <div class="w3-display-middle w3-display-hover">
                                         <a href="ProDetail?id=<%=listCam.get(i).getId()%>">
