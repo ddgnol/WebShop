@@ -41,27 +41,32 @@
                     </thead>
                     <tbody>
                         <c:forEach var="bill" items="${listbill}">
-                        <form action="EditBill?id=${bill.id}" method="post">
+
                             <tr>
-                                <td>${bill.id}</td>
-                                <td>${bill.id_cus}</td>
-                                <td>${bill.address}</td>
-                                <td>${bill.phone}</td>
-                                <td>${bill.payment}</td>
-                                <td>${bill.price}</td>
-                                <td>${bill.order_day}</td>
-                                <td>
-                                    <select name="status" class="form-control">
-                                        <option value="${bill.status}">${bill.status}</option>
-                                        <option value="Đã hủy">Đã hủy</option>
-                                        <option value="Đã gửi">Đã gửi</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button>update</button>                                  
-                                </td>
-                            </tr>
+                        <form action="EditBill?id=${bill.id}" method="post">
+                            <td>${bill.id}</td>
+                            <td>${bill.id_cus}</td>
+                            <td>${bill.address}</td>
+                            <td>${bill.phone}</td>
+                            <td>${bill.payment}</td>
+                            <td>${bill.price}</td>
+                            <td>${bill.order_day}</td>
+                            <td>
+                                <select name="status" class="form-control">
+                                    <option value="${bill.status}">${bill.status}</option>
+                                    <option value="Đã hủy">Đã hủy</option>
+                                    <option value="Đã gửi">Đã gửi</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button>update</button>                                  
+                            </td>
                         </form>
+                        <td>
+                            <a href="DetailbillServlet?id=${bill.id}"><button>view</button></a>
+                        </td>
+                        </tr>
+
                     </c:forEach>
                     </tbody>
                 </table>

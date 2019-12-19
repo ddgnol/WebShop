@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="Model.Customer"%>
 <%@page import="Model.ProCart"%>
 <%@page import="Model.Product"%>
@@ -114,13 +115,15 @@
                             int sum = 0;
                             for (ProCart p : list) {
                                 sum += p.getPrice() * p.getStatus();
+
                             }
+                            String pattern = "###,###.###";
+                            DecimalFormat decimalFormat = new DecimalFormat(pattern);
+                            String format = decimalFormat.format(sum);
                         %>
-                        <h2><%=sum%></h2>
+                        <h2><%=format%></h2>
                     </div>
-                    <div id="demo" class="collapse alert alert-success">
-                        <strong>Thành công .</strong> Sản phẩm của bạn sẽ được gửi về địa chỉ đăng kí trong 2, 3 ngày tới.
-                    </div>
+                   
                     <a href="CheckOut.jsp"><button class="btn btn-block btn-info" data-toggle="collapse">Thanh toán</button></a>
                 </div>
             </div>
