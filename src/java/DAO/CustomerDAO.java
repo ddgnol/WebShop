@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CustomerDAO {
@@ -69,6 +71,23 @@ public class CustomerDAO {
         ps.executeUpdate();
         ps.close();
     }
-            
+     public List<Customer> getAll() throws ClassNotFoundException, SQLException{
+         String sql = "SELECT * FROM customer";
+        conn= DBConnection.getConnection();
+        sm=conn.createStatement();
+        rs=sm.executeQuery(sql);  
+        List<Customer> list = new ArrayList<Customer>();
+        while(rs.next()){
+            Customer cus = new Customer();
+            cus.setId(rs.getString("id"));
+            cus.setName(rs.getString("name"));
+            cus.setEmail(rs.getString("email"));
+            cus.setDateOfBirth(rs.getString("dateOfBirth"));
+            cus.setPhoneNum(rs.getString("phoneNum"));
+            cus.setAddress(rs.getString("address"));
+            list.add(cus);
+        }
+        return list;
+     }       
             
 }

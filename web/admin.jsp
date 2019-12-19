@@ -38,7 +38,7 @@
                 <a href="#sanpham" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Sản phẩm</a> 
                 <a href="#updateProduct" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Thêm sản phẩm</a>
                 <a href="AdminBillServlet" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Quản lý hóa đơn khách hàng</a> 
-                <a href="#sanphamduocquantam" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Sản phẩm được quan tâm</a>
+                <a href="CustomerSer" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Khách hàng</a>
                 <a href="index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Trở lại trang chủ</a>
                 <a href="logout" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Đăng xuất</a>
             </div>
@@ -64,6 +64,7 @@
                             <th>TÊN SẢN PHẨM</th>
                             <th>GIÁ</th>
                             <th>MIÊU TẢ</th>
+                            <th>SỐ LƯỢNG</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -79,6 +80,7 @@
                                 <td>${pro.name}</td>
                                 <td>${pro.price}</td>
                                 <td>${pro.describe}</td>
+                                <td>${pro.quantity}</td>
                                 <td>
                                     <a href="<c:url value="EditProduct?${pro.id}"/>"><button>Sửa</button></a>
 
@@ -134,6 +136,14 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="text" id="price" required="required"
                                    class="form-control col-md-7 col-xs-12" name="price">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                               for="productName">Số lượng</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="quantity" required="required"
+                                   class="form-control col-md-7 col-xs-12" name="quantity">
                         </div>
                     </div>
                     <div class="form-group">

@@ -49,6 +49,8 @@
                                 ${pro.describe}
                             </h3>
                             <hr>
+                            <h5>Trong kho hiện còn: ${pro.quantity} sản phẩm</h5>
+                            <hr>
                             <h5>Số lượng :</h5>	
                             <div class="quaty slg" >
                                 <button onclick="sub();" type="button" class="btn btn-link">-</button>   
@@ -81,11 +83,15 @@
         
         <script type="text/javascript">
                                 function add(){
+                                        var max = ${pro.quantity};
                                         var soluong = parseInt($("#sl").html());
-                                        soluong +=1;
+                                        
+                                        if(soluong<max){
+                                            soluong +=1;
                                         $("#sl").html(soluong);
                                         $("#soLuong").val(soluong);
                                         }
+                                    }
                                 function sub(){
                                         var soluong = parseInt($("#sl").html());
                                         if(soluong>1){

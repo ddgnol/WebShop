@@ -48,7 +48,7 @@ public class ProductDAO {
                     rs.getString(3),
                     rs.getInt(4),
                     rs.getString(5),
-                    rs.getString(6)
+                    rs.getString(6),rs.getInt(7)
             );
             list.add(pro);
         }
@@ -71,7 +71,7 @@ public class ProductDAO {
                     rs.getString(3),
                     rs.getInt(4),
                     rs.getString(5),
-                    rs.getString(6)
+                    rs.getString(6), rs.getInt(7)
             );
             list.add(pro);
         }
@@ -98,7 +98,7 @@ public class ProductDAO {
                     rs.getString(3),
                     rs.getInt(4),
                     rs.getString(5),
-                    rs.getString(6)
+                    rs.getString(6), rs.getInt(7)
             );
             list.add(pro);
         }
@@ -121,7 +121,7 @@ public class ProductDAO {
                     rs.getString(3),
                     rs.getInt(4),
                     rs.getString(5),
-                    rs.getString(6)
+                    rs.getString(6), rs.getInt(7)
             );
             list.add(pro);
         }
@@ -146,6 +146,7 @@ public class ProductDAO {
             pro.setPrice(rs.getInt(4));
             pro.setDescribe(rs.getString(5));
             pro.setImg(rs.getString(6));
+            pro.setQuantity(rs.getInt(7));
         }
         return pro;
     }
@@ -205,7 +206,7 @@ public class ProductDAO {
                     rs.getString(3),
                     rs.getInt(4),
                     rs.getString(5),
-                    rs.getString(6)
+                    rs.getString(6), rs.getInt(7)
             );
             list.add(pro);
         }
@@ -228,7 +229,7 @@ public class ProductDAO {
                     rs.getString(3),
                     rs.getInt(4),
                     rs.getString(5),
-                    rs.getString(6)
+                    rs.getString(6),rs.getInt(7)
             );
             list.add(pro);
         }
@@ -251,7 +252,7 @@ public class ProductDAO {
                     rs.getString(3),
                     rs.getInt(4),
                     rs.getString(5),
-                    rs.getString(6)
+                    rs.getString(6), rs.getInt(7)
             );
             list.add(pro);
         }
@@ -271,7 +272,7 @@ public class ProductDAO {
 
     public void addProduct(Product product) {
         try {
-            String sql = "INSERT INTO product(id, name, category, price, describe, img) VALUES (?,?,?,?,?,?);";
+            String sql = "INSERT INTO product(id, name, category, price, describe, img, quantity) VALUES (?,?,?,?,?,?,?);";
 
             Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
@@ -281,6 +282,8 @@ public class ProductDAO {
             ps.setInt(4, product.getPrice());
             ps.setString(5, product.getDescribe());
             ps.setString(6, product.getImg());
+            
+            ps.setInt(7, product.getQuantity());
             ps.executeUpdate();
             ps.close();
             System.out.println("DAO.ProductDAO.addProduct()");
@@ -294,7 +297,7 @@ public class ProductDAO {
 
     public void editProduct(Product product) {
         try {
-            String sql = " update product set name=?,category=?,price=?,describe=?,img=? where id=? ; ";
+            String sql = " update product set name=?,category=?,price=?,describe=?,img=?, quantity=? where id=? ; ";
             Connection connection = DBConnection.getConnection();
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, product.getName());
@@ -302,7 +305,8 @@ public class ProductDAO {
             ps.setInt(3, product.getPrice());
             ps.setString(4, product.getDescribe());
             ps.setString(5, product.getImg());
-            ps.setString(6, product.getId());
+            ps.setString(7, product.getId());
+            ps.setInt(6, product.getQuantity());
             ps.executeUpdate();
             System.out.println("DAO.ProductDAO.editProduct()");
             ps.close();
@@ -326,7 +330,7 @@ public class ProductDAO {
                     rs.getString(3),
                     rs.getInt(4),
                     rs.getString(5),
-                    rs.getString(6)
+                    rs.getString(6),rs.getInt(7)
             );
             list.add(pro);
         }

@@ -53,7 +53,8 @@ public class AddProduct extends HttpServlet {
             //String image = "image/" + request.getParameter("image");
             String image = UPLOAD_DIR +"/" + uploadFile(request, "anh3");
             System.out.println("image "+image);
-            Product product = new Product(id, name, category, price, decribe, image);
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
+            Product product = new Product(id, name, category, price, decribe, image, quantity);
             ProductDAO productDAO;
 
             productDAO = new ProductDAO();

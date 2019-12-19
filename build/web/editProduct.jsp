@@ -131,6 +131,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                           for="productName">Số lượng:</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="quantity" required="required"
+                                               class="form-control col-md-7 col-xs-12" name="quantity" value="${pro.quantity}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
                                            for="productName">Mô tả:</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <textarea rows="4" cols="50" id="describe" required="required"
@@ -147,7 +155,7 @@
                                            type="file" name="anh3" accept="image/*" onchange="loadFile(event)" value="${pro.img}">
                                 </div>
                             </div>
-                                <div class="row" style="margin: 20px">
+                            <div class="row" style="margin: 20px">
                                 <input style="width:150px; height: 50px; margin:  30px" type = "submit" value = "Update" />
                                 <button style="margin: 30px; width: 150px; height: 50px">
                                     <a href="<c:url value="/AdminView"/>">Quay lại</a>
