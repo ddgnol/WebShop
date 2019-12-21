@@ -419,7 +419,7 @@ public class ProductDAO {
     
     public List<Bill> getCusBill(String id_cus) throws ClassNotFoundException, SQLException{
         List<Bill> list = new ArrayList<Bill>();
-        String sql = "select * from bill where id_cus="+id_cus+";";
+        String sql = "select * from bill where status=N'Đang chờ' and id_cus="+id_cus+";";
         Connection conn = DBConnection.getConnection();
         Statement statement= conn.createStatement();
         ResultSet res = statement.executeQuery(sql);
@@ -495,4 +495,28 @@ public class ProductDAO {
         sm = conn.createStatement();
         sm.executeUpdate(query);
     }
+    
+    public List<Bill> getHistoryCusBill(String id_cus) throws ClassNotFoundException, SQLException{
+        List<Bill> list = new ArrayList<Bill>();
+        String sql = "select * from bill where status=N'Đã gửi' and id_cus="+id_cus+";";
+        Connection conn = DBConnection.getConnection();
+        Statement statement= conn.createStatement();
+        ResultSet res = statement.executeQuery(sql);
+        while(res.next()){
+            Bill b= new Bill();
+            b.setId(res.getInt(1));
+            b.setId_cus(res.getString(2));
+            b.setAddress(res.getString(3));
+            b.setPhone(res.getString(4));
+            b.setPayment(res.getString(5));
+            b.setPrice(res.getInt(6));
+            b.setOrder_day(res.getString(7));
+            b.setStatus(res.getString(8));
+            list.add(b);
+        }
+        return list;
+        
+    }
+    
+    
 }

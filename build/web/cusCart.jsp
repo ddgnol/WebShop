@@ -1,7 +1,3 @@
-<%@page import="Model.Bill"%>
-<%@page import="Model.BillDetail"%>
-<%@page import="java.util.List"%>
-<%@page import="DAO.ProductDAO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,7 +28,8 @@
 
             </div>
             <div class="w3-bar-block">
-                <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Quản lý đơn hàng</a> 
+                <a href="CustomerCart" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Đơn hàng đang đặt</a>
+                <a href="HistoryCusCart" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Lịch sử mua hàng</a>
                 <a href="index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Quay lại trang chủ</a>
             </div>
         </nav>
@@ -51,7 +48,9 @@
                                     <th class="py-2">Ngày mua</th>
                                     <th class="py-2">Người nhận</th>
                                     <th class="py-2">Tổng tiền</th>
-                                    <th class="py-2"> Trạng thái</th>
+                                    <th class="py-2">Địa chỉ nhận hàng</th>
+                                    <th class="py-2">Trạng thái</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,6 +71,9 @@
 
                                         <td class="align-middle">
                                             <strong>${bill.price}</strong>
+                                        </td>
+                                        <td class="align-middle">
+                                            <strong>${bill.address}</strong>
                                         </td>
                                         <td class="align-middle">
                                             <strong>${bill.status}</strong>

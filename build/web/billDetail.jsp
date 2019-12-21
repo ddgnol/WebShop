@@ -28,7 +28,8 @@
 
             </div>
             <div class="w3-bar-block">
-                <a href="CustomerCart" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Quản lý đơn hàng</a> 
+                <a href="CustomerCart" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Đơn hàng đang đặt</a>
+                <a href="HistoryCusCart" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Lịch sử mua hàng</a>
                 <a href="index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Quay lại trang chủ</a>
             </div>
         </nav>

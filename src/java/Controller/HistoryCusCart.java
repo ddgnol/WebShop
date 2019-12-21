@@ -3,7 +3,6 @@ package Controller;
 
 import DAO.ProductDAO;
 import Model.Bill;
-import Model.BillDetail;
 import Model.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,16 +18,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ *
+ * @author Admin
+ */
+@WebServlet(name = "HistoryCusCart", urlPatterns = {"/HistoryCusCart"})
+public class HistoryCusCart extends HttpServlet {
 
-@WebServlet(name = "CustomerCart", urlPatterns = {"/CustomerCart"})
-public class CustomerCart extends HttpServlet {
-
+    
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-            response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         try {
@@ -39,10 +41,10 @@ public class CustomerCart extends HttpServlet {
                 rd.forward(request, response);
             } else {
                 ProductDAO productDAO = new ProductDAO();
-                List<Bill> listbill = productDAO.getCusBill(customer.getId());
+                List<Bill> listbill = productDAO.getHistoryCusBill(customer.getId());
                 request.setAttribute("listBill", listbill);
 
-                request.getRequestDispatcher("cusCart.jsp").forward(request, response);
+                request.getRequestDispatcher("historyCusCart.jsp").forward(request, response);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CustomerCart.class.getName()).log(Level.SEVERE, null, ex);
@@ -55,8 +57,9 @@ public class CustomerCart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+        
     }
 
     
+
 }
