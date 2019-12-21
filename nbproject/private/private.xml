@@ -3,19 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/web/allBill.jsp</file>
+            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/Controller/LoginServ.java</file>
+            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/Model/Product.java</file>
+            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/Controller/AddToCart.java</file>
+            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/Controller/CheckOut.java</file>
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/web/detailPro.jsp</file>
-            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/DAO/CustomerDAO.java</file>
+            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/Controller/DeleteProInCart.java</file>
+            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/Controller/UpdateCart.java</file>
+            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/web/login.jsp</file>
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/web/cart.jsp</file>
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/DAO/ProductDAO.java</file>
-            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/web/adminCustomer.jsp</file>
-            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/web/adminBillDetail.jsp</file>
-            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/Controller/ProductsServ.java</file>
+            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/Controller/CartServlet.java</file>
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/Controller/logout.java</file>
-            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/web/customer.jsp</file>
-            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/Model/Product.java</file>
-            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/Controller/CustomerSer.java</file>
-            <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/web/admin.jsp</file>
         </group>
     </open-files>
 </project-private>

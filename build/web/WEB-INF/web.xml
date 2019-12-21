@@ -28,6 +28,10 @@
         <servlet-name>CustomerSer</servlet-name>
         <servlet-class>Controller.CustomerSer</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Check</servlet-name>
+        <servlet-class>Controller.Check</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>deleteProFromCart</servlet-name>
         <url-pattern>/deleteProFromCart</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>CustomerSer</servlet-name>
         <url-pattern>/CustomerSer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Check</servlet-name>
+        <url-pattern>/Check</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -48,7 +48,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember"> Remember me
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-primary " >Đăng nhập</button>
+                            <button type="submit" class="btn btn-primary ">Đăng nhập</button>
 
                         </form>
                         <div style="margin-top: 30px">
@@ -58,6 +58,7 @@
                     </div>
                 </div>
             </div>
+            
             <br><br><br><br><br>
         <jsp:include page="footer.jsp"></jsp:include>
     </body>

@@ -24,15 +24,17 @@ public class logout extends HttpServlet {
         doPost(request, response);
     }
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        session.invalidate();
+        HttpSession session = request.getSession(false);
+        session.removeAttribute("prosInCart");
+        session.setAttribute("prosInCart", null);
+        if (session != null) {
+            session.invalidate();
+        }
         RequestDispatcher view = request.getRequestDispatcher("login.jsp");
-                view.forward(request, response);
+        view.forward(request, response);
     }
-
 
 }

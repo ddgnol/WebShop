@@ -41,6 +41,9 @@
                                 <img src="${pro.img}" style="width: 100%; height: 100%" class="w3-card">
                         </div>
                         <div class="col-sm-7 " style="margin: 20px; padding-left: 150px">
+                            <div>
+                                <h3><strong style="color: red">${error}</strong></h3>
+                            </div>  
                             <h1 class="w3-center">${pro.name}</h1><br>
                             <hr>
                             <h3 class="w3-center"><strong>Giá: ${pro.price}</strong></h3>
@@ -57,20 +60,18 @@
                                 <span id="sl"> 1 </span>
                                 <button onclick="add();" type="button" class="btn btn-link" >+</button>   
                             </div>
-                           
-                           <br>
-                      <form action="AddToCart" method="post">
-                               <input type="hidden" name="id" value="${pro.id}">
-                               <input type="hidden" name="soLuong" id="soLuong">
-                            <button type="submit" class="btn btn-outline-danger" data-toggle="collapse"  data-target="#demo">Thêm vào giỏ hàng <i class="fa fa-shopping-cart"></i></button>
-                           </form>   
-                            <div>
-                                <h3><strong style="color: red">${error}</strong></h3>
-                            </div>  
-     <!--                         <button type="submit"  class="btn btn-outline-danger" data-toggle="collapse" data-target="#demo"  onclick="loadDoc()">Thêm vào giỏ hàng <i class="fa fa-shopping-cart"></i></button>
-                            <div id="demo" class="collapse alert alert-success">
-                                <strong>Thành công .</strong> Sản phẩm của bạn đã được thêm vào giỏ hàng.
-                            </div>   -->
+
+                            <br>
+                            <form action="AddToCart" method="post">
+                                <input type="hidden" name="id" value="${pro.id}">
+                                <input type="hidden" name="soLuong" id="soLuong">
+                                <button type="submit" class="btn btn-outline-danger" data-toggle="collapse"  data-target="#demo">Thêm vào giỏ hàng <i class="fa fa-shopping-cart"></i></button>
+                            </form>   
+
+                            <!--                         <button type="submit"  class="btn btn-outline-danger" data-toggle="collapse" data-target="#demo"  onclick="loadDoc()">Thêm vào giỏ hàng <i class="fa fa-shopping-cart"></i></button>
+                                                   <div id="demo" class="collapse alert alert-success">
+                                                       <strong>Thành công .</strong> Sản phẩm của bạn đã được thêm vào giỏ hàng.
+                                                   </div>   -->
 
                         </div>
                     </div>
@@ -79,46 +80,46 @@
             </div>
         </div>
         <jsp:include page="footer.jsp"></jsp:include>
-            
-        
-        <script type="text/javascript">
-                                function add(){
-                                        var max = ${pro.quantity};
-                                        var soluong = parseInt($("#sl").html());
-                                        
-                                        if(soluong<max){
-                                            soluong +=1;
-                                        $("#sl").html(soluong);
-                                        $("#soLuong").val(soluong);
-                                        }
-                                    }
-                                function sub(){
-                                        var soluong = parseInt($("#sl").html());
-                                        if(soluong>1){
-                                                soluong -=1;
-                                                $("#sl").html(soluong);
-                                                $("#soLuong").val(soluong);
-                                        }
-					
-                                }
+
+
+            <script type="text/javascript">
+                function add() {
+                    var max = ${pro.quantity};
+                    var soluong = parseInt($("#sl").html());
+
+                    if (soluong < max) {
+                        soluong += 1;
+                        $("#sl").html(soluong);
+                        $("#soLuong").val(soluong);
+                    }
+                }
+                function sub() {
+                    var soluong = parseInt($("#sl").html());
+                    if (soluong > 1) {
+                        soluong -= 1;
+                        $("#sl").html(soluong);
+                        $("#soLuong").val(soluong);
+                    }
+
+                }
         </script>		
 
-        
+
         <script>
-                function loadDoc() {
-                    var soluong = parseInt($("#sl").html());
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("doServlet").innerHTML = this.responseText;
-                        }
-                    };
-                    var url="AddToCart?id=${pro.id}&soluong="+soluong;
-                    xhttp.open("POST",url , true);
-                    xhttp.send();
-                }
+            function loadDoc() {
+                var soluong = parseInt($("#sl").html());
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("doServlet").innerHTML = this.responseText;
+                    }
+                };
+                var url = "AddToCart?id=${pro.id}&soluong=" + soluong;
+                xhttp.open("POST", url, true);
+                xhttp.send();
+            }
         </script>
-        
-       
+
+
     </body>
 </html>

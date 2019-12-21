@@ -488,5 +488,11 @@ public class ProductDAO {
         ps.setInt(2, id);
         ps.executeUpdate();
     }
-    
+    public void deleteCusCart(String idCus) throws ClassNotFoundException, SQLException{
+        String query = "delete from orderCart where idCustomer ='"+idCus+"';"  ;
+
+        Connection conn = DBConnection.getConnection();
+        sm = conn.createStatement();
+        sm.executeUpdate(query);
+    }
 }
