@@ -46,13 +46,13 @@
                     <div class="dropdown" style="padding-bottom: 10px;padding-top: 10px" >
                         <ol id="menu">
                             <li><a href="#" class=" justify-content-end float-right " data-toggle="dropdown" style="color: black;font-weight:700;font-size: 80%"><i class="fas fa-user" style="  color: brown;"></i>Chào ${cus.name} , Mã KH : ${cus.id}</a>
-                            <ol>
-                                <li><a href="customer">Thông tin tài khoản</a></li>
-                                <li><a href="CustomerCart">Quản lý đơn hàng</a></li>
-                                <li><a href="logout">Đăng xuất</a></li>
-                            </ol>
-                        </li> 
-                         </ol>
+                                <ol>
+                                    <li><a href="customer">Thông tin tài khoản</a></li>
+                                    <li><a href="CustomerCart">Quản lý đơn hàng</a></li>
+                                    <li><a href="logout">Đăng xuất</a></li>
+                                </ol>
+                            </li> 
+                        </ol>
                         <!--<input type="button" class="btn btn-secondary float-right" value="Đăng xuất"/>
                         <div class="dropdown-menu" style="z-index: 1000">
                             <input type="button" class="btn btn-secondary" value="Đăng xuất"/>

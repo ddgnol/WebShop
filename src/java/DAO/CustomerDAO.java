@@ -72,7 +72,7 @@ public class CustomerDAO {
         ps.close();
     }
      public List<Customer> getAll() throws ClassNotFoundException, SQLException{
-         String sql = "SELECT * FROM customer";
+         String sql = "SELECT * FROM customer where name not like 'admin' ;";
         conn= DBConnection.getConnection();
         sm=conn.createStatement();
         rs=sm.executeQuery(sql);  

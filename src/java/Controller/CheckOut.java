@@ -39,7 +39,11 @@ public class CheckOut extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        String address = request.getParameter("address");
+        String sonha = request.getParameter("so nha");
+        String phuong = request.getParameter("phuong");
+        String quan = request.getParameter("quan");
+        String tp = request.getParameter("thanh pho");
+        String address = sonha+","+phuong+","+quan+","+tp ;
         String phone = request.getParameter("phone");
         String payment = request.getParameter("payment");
         String status = "Đang chờ";
