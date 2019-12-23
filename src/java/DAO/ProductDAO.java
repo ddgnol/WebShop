@@ -517,6 +517,21 @@ public class ProductDAO {
         return list;
         
     }
-    
+    public List<BillDetail> getBillDetailById(int id) throws ClassNotFoundException, SQLException{
+        List<BillDetail> list = new ArrayList<BillDetail>();
+        String sql = "select * from billdetail where id="+id+";";
+        Connection conn = DBConnection.getConnection();
+        Statement statement= conn.createStatement();
+        ResultSet rs = statement.executeQuery(sql);
+        while(rs.next()){
+            BillDetail bill = new BillDetail();
+           
+            bill.setId(rs.getInt("id"));
+            bill.setId_pro(rs.getString("id_pro"));
+            bill.setNumber(rs.getInt("number"));
+            list.add(bill);
+        }
+        return list;
+    }
     
 }

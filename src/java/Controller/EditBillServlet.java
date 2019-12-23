@@ -2,7 +2,7 @@
 package Controller;
 
 import DAO.ProductDAO;
-import Model.Bill;
+import Model.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -38,6 +38,14 @@ public class EditBillServlet extends HttpServlet {
             String status = request.getParameter("status");
             ProductDAO productDAO = new ProductDAO();
             productDAO.updateBill(id, status);
+            if(status.equals("Đã gửi")){
+                List<BillDetail> list = productDAO.getBillDetailById(id);
+                for(BillDetail bill: list){
+                    Product pro = productDAO.getProById(bill.getId_pro());
+                    pro.setQuantity(pro.getQuantity()-bill.getNumber());
+                    productDAO.editProduct(pro);
+                }
+            }
             request.setAttribute("error", "Cập nhập trạng thái đơn thành công");
             List<Bill> list = productDAO.getAllBill();
             request.setAttribute("listbill", list);
