@@ -7,6 +7,7 @@ package Controller;
 
 import DAO.AddressDAO;
 import Model.district;
+import Model.ward;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,8 +27,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
-@WebServlet(name = "DistrictSer", urlPatterns = {"/DistrictSer"})
-public class DistrictSer extends HttpServlet {
+@WebServlet(name = "WardSer", urlPatterns = {"/WardSer"})
+public class WardSer extends HttpServlet {
 
     
     @Override
@@ -47,16 +48,15 @@ public class DistrictSer extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
-            String proname = request.getParameter("proname");
+            String disname = request.getParameter("disname");
             
             AddressDAO addressDAO = new AddressDAO();
-            String id = addressDAO.getProvince_id(proname);
-            List<district> list = addressDAO.getAllDistrict(id);
-            System.out.println(proname);
-            Map<Integer,String> listDis = new HashMap<Integer, String>();
+            List<ward> list = addressDAO.getAllWard(disname);
+            System.out.println(disname);
+            Map<Integer, String> listWar = new HashMap<Integer, String>();
             int i=1;
-            for (district dis : list) {
-                listDis.put(i, dis.getName());
+            for (ward war : list) {
+                listWar.put(i, war.getName());
                 i++;
             }
             // listDis.put(1, "Huyen Hoang Sa");
@@ -66,10 +66,10 @@ public class DistrictSer extends HttpServlet {
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             
-            json = new Gson().toJson(listDis);
+            json = new Gson().toJson(listWar);
             
             response.getWriter().write(json);
-            System.out.println("Controller.DistrictSer.doGet()");
+            System.out.println("Controller.WardSer.doGet()");
             System.out.println(json);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DistrictSer.class.getName()).log(Level.SEVERE, null, ex);

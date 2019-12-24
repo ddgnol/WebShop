@@ -36,7 +36,7 @@
                                                 <div>
                                                     <label>Thành phố/Tỉnh</label>
                                                     <div>
-                                                        <select name="thanh pho" class="form-control" >
+                                                        <select name="thanh pho" class="form-control" id="province">
                                                             <option value="0">Vui lòng chọn tỉnh/thành phố</option>
                                                             <%
                                                                 AddressDAO addressDAO = new AddressDAO();
@@ -53,36 +53,18 @@
                                                 <div>
                                                     <label>Quận/Huyện</label>
                                                     <div>
-                                                        <select name="quan" class="form-control" >
+                                                        <select name="quan" class="form-control" id="district">
                                                             <option value="0">Vui lòng chọn quận/huyện</option>
-                                                            <%
-                                                                String quan = "01";
-                                                                List<district> districtList = addressDAO.getAllDistrict(quan);
-                                                                for (district q : districtList) {
-                                                                        
-                                                            %>
-                                                            <option value="<%=q.getName()%>"><%=q.getName()%></option>
-                                                            <%
-                                                                    }
-                                                            %>
+                                                            
                                                         </select> 
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <label>Phường/Xã</label>
                                                     <div>
-                                                        <select name="phuong" class="form-control" >
+                                                        <select name="phuong" class="form-control" id="ward" >
                                                             <option value="0">Vui lòng chọn phường/xã</option>
-                                                            <%
-                                                                String phuong = "001";
-                                                                List<ward> wardList = addressDAO.getAllWard(phuong);
-                                                                for (ward w : wardList) {
-
-                                                            %>
-                                                            <option value="<%=w.getName()%>"><%=w.getName()%></option>
-                                                            <%
-                                                                    }
-                                                            %>
+                                                            
                                                         </select> 
                                                     </div>
                                                 </div>
@@ -115,6 +97,49 @@
                 </div>
             </div>
             <br><br><br>
+            
+            
+            <script type="text/javascript">
+        $(document).ready(function(){
+                $('#province').change(function(event){
+                                var pro = $('#province').val();
+                                $.ajax({
+                                        type: "GET",
+                                        data: {proname: pro},
+                                        url: "DistrictSer",
+                                        success: function(responseJson){
+                                                var $dis = $('#district');
+                                                $dis.find('option').remove();
+                                                $.each(responseJson, function(key,value){
+                                                        $('<option>').val(value).text(value).appendTo($dis);
+                                                });
+                                        }
+                                })
+                });     
+        });
+            </script>
+            
+            <script type="text/javascript">
+        $(document).ready(function(){
+                $('#district').change(function(event){
+                                var dis = $('#district').val();
+                                $.ajax({
+                                        type: "GET",
+                                        data: {disname: dis},
+                                        url: "WardSer",
+                                        success: function(responseJson){
+                                                var $war = $('#ward');
+                                                $war.find('option').remove();
+                                                $.each(responseJson, function(key, value){
+                                                        $('<option>').val(value).text(value).appendTo($war);
+                                                });
+                                        }
+                                })
+                });     
+        });
+            </script>
+            
+            
         <jsp:include page="footer.jsp"></jsp:include>
 
     </body>

@@ -5,8 +5,10 @@
  */
 package Controller;
 
+import Model.ProCart;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,9 +29,12 @@ public class logout extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
+        List<ProCart> s = (List<ProCart>) session.getAttribute("prosInCart");
+        s.clear();
+        System.out.println("logout"+s.size());
         session.removeAttribute("prosInCart");
-        session.setAttribute("prosInCart", null);
+        session.setAttribute("prosInCart", s);
         if (session != null) {
             session.invalidate();
         }
