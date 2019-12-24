@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/Controller/LoginServ.java</file>
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/web/allBill.jsp</file>
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/web/detailPro.jsp</file>
@@ -21,6 +22,14 @@
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/DBConnection/DBConnection.java</file>
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/src/java/Controller/UpdateCart.java</file>
             <file>file:/C:/Users/DELL%20LATITUDE/OneDrive/Desktop/New%20folder%20(2)/WebShop/nbproject/build-impl.xml</file>
+=======
+            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/Controller/DeleteBill.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/DAO/ProductDAO.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/Controller/DeleteProduct.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/Controller/logout.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop/src/java/Controller/EditProductServlet.java</file>
+            <file>file:/C:/Users/Admin/Downloads/WebShop/web/cusCart.jsp</file>
+>>>>>>> e81b4095bd917517b3c3e0260aefe8b76d880b34
         </group>
     </open-files>
 </project-private>

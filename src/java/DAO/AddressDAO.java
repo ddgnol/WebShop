@@ -62,12 +62,12 @@ public class AddressDAO {
             return listD;
         
     }
-    
+        
     //lấy xã/quận theo mã huyện
-    public List<ward> getAllWard(String district_id) throws ClassNotFoundException, SQLException{
+    public List<ward> getAllWard(String district_name) throws ClassNotFoundException, SQLException{
         
             List<ward> listW = new ArrayList<ward>();
-            String sql = "select * from ward where district_id='"+district_id+"' order by name;" ;
+    String sql = "select ward.* from ward , province, district where ward.district_id = district.id and district.province_id = province.id and district.name like N'"+district_name+"' ;" ;
             Connection conn = DBConnection.getConnection();
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -81,4 +81,19 @@ public class AddressDAO {
             }
             return listW;
     }
+    
+    public String getProvince_id(String province_name) throws ClassNotFoundException, SQLException {
+        String sql = "select id from province where name=N'" + province_name + "' ;";
+        Connection conn = DBConnection.getConnection();
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        String id = null;
+        while (rs.next()) {            
+            id = rs.getString(1);
+            
+        }
+        return id;
+        
+    }
+    
 }

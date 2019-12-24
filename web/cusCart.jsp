@@ -82,6 +82,7 @@
                                             <form action="DetailbillServlet?id=${bill.id}" method="post">
                                                 <button>Xem chi tiết</button>
                                             </form>
+                                            <a href="<c:url value="DeleteBill?${bill.id}"/>"><button>Xóa</button></a>
                                         </td>
                                     </tr>
                                     

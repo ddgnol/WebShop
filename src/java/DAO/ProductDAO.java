@@ -534,4 +534,21 @@ public class ProductDAO {
         return list;
     }
     
+    public void deleteBill(String id) throws ClassNotFoundException, SQLException {
+        String query = "DELETE FROM bill where id="+id+";";
+
+        Connection conn = DBConnection.getConnection();
+        Statement statement= conn.createStatement();
+        statement.executeUpdate(query);
+        System.out.println("thành công");
+    }
+    public void deleteBillDetail(String id) throws ClassNotFoundException, SQLException {
+        String query = "DELETE FROM billdetail where id="+id+";";
+
+        Connection conn = DBConnection.getConnection();
+        Statement statement= conn.createStatement();
+        statement.executeUpdate(query);
+        System.out.println("thành công");
+    }
+    
 }
