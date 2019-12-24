@@ -460,7 +460,7 @@ public class ProductDAO {
     
     public List<Bill> getAllBill() throws ClassNotFoundException, SQLException{
         List<Bill> list = new ArrayList<Bill>();
-        String sql = "select * from bill ";
+        String sql = "select * from bill order by order_day DESC ";
         Connection conn = DBConnection.getConnection();
         Statement statement= conn.createStatement();
         ResultSet res = statement.executeQuery(sql);

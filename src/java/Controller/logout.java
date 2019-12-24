@@ -30,11 +30,13 @@ public class logout extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        List<ProCart> s = (List<ProCart>) session.getAttribute("prosInCart");
-        s.clear();
-        System.out.println("logout"+s.size());
-        session.removeAttribute("prosInCart");
-        session.setAttribute("prosInCart", s);
+        if (session.getAttribute("prosInCart") != null) {
+            List<ProCart> s = (List<ProCart>) session.getAttribute("prosInCart");
+            s.clear();
+            System.out.println("logout" + s.size());
+            session.removeAttribute("prosInCart");
+            session.setAttribute("prosInCart", s);
+        }
         if (session != null) {
             session.invalidate();
         }
