@@ -1,6 +1,7 @@
 package Controller;
 
 import DAO.ProductDAO;
+import Model.BillDetail;
 import Model.Product;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,6 +10,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -83,6 +85,20 @@ public class EditProductServlet extends HttpServlet {
             Product product = new Product(id, name, category, price, decribe, image, quantity);
             System.out.println(product);
             ProductDAO productDAO = new ProductDAO();
+            List<BillDetail> list = productDAO.getProductFromBillDetail();
+            for (BillDetail billDetail : list) {
+                if(quantity < billDetail.getNumber()){
+                    request.setAttribute("error", "Không thể sửa vì sản phẩm đang được khách đặt hàng");
+                    request.setAttribute("id", id);
+                    request.setAttribute("pro", product);
+                    request.getRequestDispatcher("editProduct.jsp").forward(request, response);
+                } 
+            }
+            if(quantity == 0){
+                productDAO.deleteProduct(id);
+                RequestDispatcher rd = request.getRequestDispatcher("AdminView");
+                rd.forward(request, response);
+            }
             productDAO.editProduct(product);
             request.setAttribute("error", "Sửa thành công");
             request.setAttribute("id", id);

@@ -50,7 +50,7 @@
 
         <!-- !PAGE CONTENT! -->
         <div class="w3-main" style="margin-left:300px">
-
+                <h3 style="color: red">${error}</h3>
             <!-- Header -->
             <header id="sanpham">
                 <h2 style="padding:10px"><strong>Sản phẩm</strong></h2>

@@ -21,7 +21,7 @@
     </head>
     <body class="w3-light-grey w3-content" style="max-width:1600px">
         <div>
-            <br><h2 style="color: red">${error}</h2><br>
+            
             <header id="sanpham">
                 <h2 style="padding:10px"><strong>Danh sách khách hàng</strong></h2>
             </header>
@@ -35,6 +35,7 @@
                             <th>SĐT</th>
                             <th>Ngày Sinh</th>
                             <th>Email</th>
+                            <th>Lịch sử mua hàng</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,7 +49,11 @@
                                 <td>${cus.phoneNum}</td>
                                 <td>${cus.dateOfBirth}</td>
                                 <td>${cus.email}</td>
-                              
+                                <td>
+                                    <form action="AdminBillCus?id=${cus.id}&name=${cus.name}" method="post">
+                                        <button>Xem lịch sử</button>
+                                    </form>
+                                </td>
                             </tr>
 
                         </c:forEach>

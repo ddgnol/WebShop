@@ -460,7 +460,7 @@ public class ProductDAO {
     
     public List<Bill> getAllBill() throws ClassNotFoundException, SQLException{
         List<Bill> list = new ArrayList<Bill>();
-        String sql = "select * from bill order by order_day DESC ";
+        String sql = "select * from bill where status =N'Đang chờ' order by order_day DESC ";
         Connection conn = DBConnection.getConnection();
         Statement statement= conn.createStatement();
         ResultSet res = statement.executeQuery(sql);
@@ -549,6 +549,23 @@ public class ProductDAO {
         Statement statement= conn.createStatement();
         statement.executeUpdate(query);
         System.out.println("thành công");
+    }
+    
+    public List<BillDetail> getProductFromBillDetail() throws ClassNotFoundException, SQLException{
+        List<BillDetail> list = new ArrayList<BillDetail>();
+        String sql = "select * from billdetail;";
+        Connection conn = DBConnection.getConnection();
+        Statement statement= conn.createStatement();
+        ResultSet rs = statement.executeQuery(sql);
+        while(rs.next()){
+            BillDetail bd= new BillDetail();
+            bd.setId(rs.getInt(1));
+            bd.setId_pro(rs.getString(2)); // tên sản phẩm
+            bd.setNumber(rs.getInt(3));
+            list.add(bd);
+        }
+        return list;
+        
     }
     
 }
