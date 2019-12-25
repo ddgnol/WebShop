@@ -56,6 +56,37 @@ public class AddToCart extends HttpServlet {
                 pc.setImg(pro.getImg());
                 pc.setCategory(pro.getCategory());
                 list.add(pc);
+                if (pro.getCategory().equals("ĐIỆN THOẠI")) {
+                    List<Product> list = proDAO.getPhone();
+                    for (Product p : list) {
+                        if (p.getId().equals(idPro)) {
+                            boolean b = list.remove(p);
+                            System.out.println("remove " + b);
+                            break;
+                        }
+                    }
+                    request.setAttribute("samePros", list);
+                } else if (pro.getCategory().equals("LAPTOP")) {
+                    List<Product> list = proDAO.getLaptop();
+                    for (Product p : list) {
+                        if (p.getId().equals(idPro)) {
+                            boolean b = list.remove(p);
+                            System.out.println("remove " + b);
+                            break;
+                        }
+                    }
+                    request.setAttribute("samePros", list);
+                } else {
+                    List<Product> list = proDAO.getCamera();
+                    for (Product p : list) {
+                        if (p.getId().equals(idPro)) {
+                            boolean b = list.remove(p);
+                            System.out.println("remove " + b);
+                            break;
+                        }
+                    }
+                    request.setAttribute("samePros", list);
+                }
                 session.setAttribute("prosInCart", list);
                 request.setAttribute("pro", pro);
                 request.setAttribute("error", "Thành công . Sản phẩm đã được thêm vào giỏ hàng");
