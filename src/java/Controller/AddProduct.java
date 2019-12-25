@@ -2,6 +2,7 @@ package Controller;
 
 import DAO.ProductDAO;
 import Model.Product;
+import Model.orderCart;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,8 +11,10 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.time.Clock;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -60,7 +63,11 @@ public class AddProduct extends HttpServlet {
             productDAO = new ProductDAO();
             productDAO.addProduct(product);
 
-            response.sendRedirect(request.getContextPath() + "/AdminView");
+            List<Product> list = productDAO.getAllProduct();
+            request.setAttribute("listPro", list);
+            request.setAttribute("error", "Thêm sản phẩm thành công");
+            RequestDispatcher rd =request.getRequestDispatcher("admin.jsp");
+            rd.forward(request, response);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddProduct.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
