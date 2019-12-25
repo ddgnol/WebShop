@@ -48,6 +48,7 @@ public class LoginServ extends HttpServlet {
                 session.setAttribute("cus", cus);
                 
                 if(acc.getIsAdmin()==1){
+                    session.setAttribute("isAdmin", 1);
                     RequestDispatcher view = request.getRequestDispatcher("AdminView");
                     view.forward(request, response);
                 }
